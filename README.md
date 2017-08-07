@@ -1,4 +1,4 @@
-# Spring Master Class - Journey from Beginner to Expert with Spring Framework.
+# Spring Master Class - Journey from Beginner to Expert
 Learn the magic of Spring Framework. From IOC (Inversion of Control), DI (Dependency Injection), Application Context to the world of Spring Boot, AOP, JDBC and JPA. Get set for an incredible journey.
 
 ## Overview
