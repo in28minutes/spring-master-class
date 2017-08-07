@@ -1,0 +1,57 @@
+<div class="alert alert-error" ng-show="error">{{errorMessage}}</div>
+
+<form ng-submit="addTodo(todoName)">
+	<div class="form-group" ng-class="{ 'has-error':todoName.$invalid }">
+		<input class="form-control" placeholder="Enter Todo" type="text"
+			ng-model="todoName"  required/>
+	</div>
+</form>
+
+<button class="btn btn-primary" ng-disabled="!todoName"
+	ng-hide="editMode" ng-click="addTodo(todoName)">Add Todo</button>
+
+<button type="btn btn-primary" class="btn btn-primary"
+	ng-disabled="!todoName" ng-show="editMode"
+	ng-click="updateTodo(todoName)">Save</button>
+
+<button type="btn btn-primary" class="btn btn-primary"
+	ng-click="resetTodoField()">Reset</button>
+
+<div class="form-group">
+	<div class="input-group">
+		<input type="text" class="form-control" placeholder="Search"
+			id="search-query-3" ng-model="searchTodo"
+			typeahead="todo for todo in todos | filter:$viewValue | limitTo:8">
+		<span class="input-group-btn">
+			<button type="submit" class="btn">
+				<span class="fui-search"></span>
+			</button>
+		</span>
+	</div>
+</div>
+
+<div class="alert alert-info" 
+	ng-show="todos.length == 0">No todos found</div>
+
+<table class="table table-bordered table-striped"
+	ng-show="todos.length > 0">
+	<thead>
+		<tr>
+			<th style="text-align: center; width: 25px;">Delete</th>
+			<th style="text-align: center; width: 25px;">Update</th>
+			<th style="text-align: center;">Todo</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="todo in todos | filter:searchTodo">
+			<td style="width: 70px; text-align: center;"><button
+					class="btn btn-mini btn-danger" ng-click="deleteTodo(todo)">Delete</button></td>
+			<td style="width: 70px; text-align: center;"><button
+					class="btn btn-mini" ng-click="editTodo(todos.indexOf(todo), todo)">Update</button></td>
+			<td>{{todo}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<button class="btn btn-danger" ng-show="todos.length >= 1"
+	ng-click="deleteAllTodo()">Delete All   Todos</button>

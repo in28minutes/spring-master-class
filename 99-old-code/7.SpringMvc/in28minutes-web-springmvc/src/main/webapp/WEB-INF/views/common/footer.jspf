@@ -1,0 +1,12 @@
+<footer>
+    <div class="container">
+        <div class="row well">
+            <div align="center">
+            <p>This is our footer.</p>
+        </div>
+    </div>
+    </div>
+</footer>
+
+</body>
+</html>

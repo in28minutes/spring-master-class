@@ -1,0 +1,15 @@
+Searching directory [/in28Minutes/git/getting-started-in-5-steps/spring-in-5-steps/target/classes/com/in28minutes/spring/basics/springin5steps] for files matching pattern [/in28Minutes/git/getting-started-in-5-steps/spring-in-5-steps/target/classes/com/in28minutes/spring/basics/springin5steps/**/*.class]
+Identified candidate component class: file [/in28Minutes/git/getting-started-in-5-steps/spring-in-5-steps/target/classes/com/in28minutes/spring/basics/springin5steps/BinarySearchImpl.class]
+Identified candidate component class: file [/in28Minutes/git/getting-started-in-5-steps/spring-in-5-steps/target/classes/com/in28minutes/spring/basics/springin5steps/BubbleSortAlgorithm.class]
+
+Creating instance of bean 'binarySearchImpl'
+Creating instance of bean 'bubbleSortAlgorithm'
+Finished creating instance of bean 'bubbleSortAlgorithm'
+
+Constuctor - Autowiring by type from bean name 'binarySearchImpl' via constructor 
+to bean named 'bubbleSortAlgorithm'
+Setter -  Autowiring by type from bean name 'binarySearchImpl' to bean named 'bubbleSortAlgorithm'
+No Setter or Constructor - Autowiring by type from bean name 'binarySearchImpl' to bean named 'bubbleSortAlgorithm'
+
+
+Finished creating instance of bean 'binarySearchImpl'

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>todolist-taglib</short-name>
+    <uri>http://todolist.org/taglib</uri>
+
+    <tag>
+        <description>Tag that highlights patterns in its body content with a given css style</description>
+        <name>highlight</name>
+        <tag-class>com.in28minutes.web.common.tags.HighlightTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>pattern</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>cssClass</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>caseSensitive</name>
+            <required>false</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>Tag to transcode todo priority to icon value</description>
+        <name>priorityIcon</name>
+        <tag-class>com.in28minutes.web.common.tags.PriorityIconTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>priority</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>Tag to transcode todo status to label value</description>
+        <name>statusLabel</name>
+        <tag-class>com.in28minutes.web.common.tags.StatusLabelTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>status</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>Tag to transcode todo status to css style</description>
+        <name>statusStyle</name>
+        <tag-class>com.in28minutes.web.common.tags.StatusStyleTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>status</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+
+</taglib>
