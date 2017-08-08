@@ -17,7 +17,7 @@ public class SpringIn5StepsScopeApplication {
 	public static void main(String[] args) {
 
 		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsComponentScanApplication.class)) {
+				SpringIn5StepsScopeApplication.class)) {
 
 			PersonDAO personDao = applicationContext.getBean(PersonDAO.class);
 

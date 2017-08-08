@@ -1,47 +1,3 @@
-##  Spring In Depth
-
-- Step 1 - Setting up a Spring Project using htttp://start.spring.io
-- Step 2 - Understanding Tight Coupling using the Binary Search Algorithm Example
-- Step 3 - Making the Binary Search Algorithm Example Loosely Coupled
-- Step 4 - Using Spring to Manage Dependencies - @Component, @Autowired
-- Step 5 - What is happening in the background?
-- Step 6 - Dynamic auto wiring and Troubleshooting - @Primary
-- Step 7 - Constructor and Setter Injection
-- Step 8 - Spring Modules
-- Step 9 - Spring Projects
-- Step 10 - Why is Spring Popular?
-- Step 11 - Dependency Injection - A few more examples
-- Step 12 - Autowiring in Depth - by Name and @Primary
-- Step 13 - Autowiring in Depth - @Qualifier annotation
-- Step 14 - Scope of a Bean - Prototype and Singleton
-- Step 15 - Complex scenarios with Scope of a Spring Bean - Mix of Prototype and Singleton
-- Step 16 - Using Component Scan to scan for beans
-- Step 17 - Lifecycle of a Bean - @PostConstruct and @PreDestroy
-- Step 18 - Container and Dependency Injection (CDI) - @Named, @Inject
-- Step 19 - Removing Spring Boot in Basic Application
-- Step 20 - Fixing minor stuff - Add Logback and Close Application Context
-- Step 21 - Defining Spring Application Context using XML - Part 1
-- Step 22 - Defining Spring Application Context using XML - Part 2
-- Step 23 - Mixing XML Context with Component Scan for Beans defined with Annotations
-- Step 24 - IOC Container vs Application Context vs Bean Factory
-- Step 25 - @Component vs @Service vs @Repository vs @Controller
-- Step 26 - Read values from external properties file
-- Step 27 - Spring Unit Testing with a Java Context
-- Step 28 - Spring Unit Testing with an XML Context
-- Step 29 - Spring Unit Testing with Mockito
-
-## Notes
-```
-[componentDAO, scopedTarget.componentJdbcConnection, 
-componentJdbcConnection, springIn5StepsBasicApplication, 
-springIn5StepsCdiApplication, 
-springIn5StepsComponentScanApplication, springIn5StepsScopeApplication, 
-binarySearchImpl, bubbleSortAlgorithm, quickSortAlgorithm, 
-someCdiBusiness, someCdiDao, scopedTarget.jdbcConnection, 
-jdbcConnection, personDAO, org.springframework.context.annotation.internalConfigurationAnnotationProcessor, org.springframework.context.annotation.internalAutowiredAnnotationProcessor, org.springframework.context.annotation.internalRequiredAnnotationProcessor, org.springframework.context.annotation.internalCommonAnnotationProcessor, org.springframework.context.event.internalEventListenerProcessor, org.springframework.context.event.internalEventListenerFactory, 
-xmlJdbcConnection, xmlPersonDAO]
-```
-
 
 ## Complete Code Example
 
@@ -104,10 +60,29 @@ xmlJdbcConnection, xmlPersonDAO]
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+<!-- 
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<build>
@@ -317,7 +292,7 @@ import javax.inject.Named;
 
 @Named
 public class SomeCdiBusiness {
-	
+
 	@Inject
 	SomeCdiDao someCdiDao;
 
@@ -328,6 +303,18 @@ public class SomeCdiBusiness {
 	public void setSomeCDIDAO(SomeCdiDao someCdiDao) {
 		this.someCdiDao = someCdiDao;
 	}
+
+	public int findGreatest() {
+		int greatest = Integer.MIN_VALUE;
+		int[] data = someCdiDao.getData();
+		for (int value : data) {
+			if (value > greatest) {
+				greatest = value;
+			}
+		}
+		return greatest;
+	}
+
 }
 ```
 ---
@@ -341,6 +328,10 @@ import javax.inject.Named;
 
 @Named
 public class SomeCdiDao {
+	
+	public int[] getData() {
+		return new int[] {5, 89,100};
+	}
 
 }
 ```
@@ -712,6 +703,129 @@ Finished creating instance of bean 'binarySearchImpl'
 ```
 ---
 
+### /src/test/java/com/in28minutes/spring/basics/springin5steps/basic/BinarySearchTest.java
+
+```java
+package com.in28minutes.spring.basics.springin5steps.basic;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.in28minutes.spring.basics.springin5steps.SpringIn5StepsBasicApplication;
+
+//Load the context
+@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = SpringIn5StepsBasicApplication.class)
+public class BinarySearchTest {
+
+	// Get this bean from the context
+	@Autowired
+	BinarySearchImpl binarySearch;
+
+	@Test
+	public void testBasicScenario() {
+		
+		// call method on binarySearch
+		int actualResult = binarySearch.binarySearch(new int[] {}, 5);
+
+		// check if the value is correct
+		assertEquals(3, actualResult);
+
+	}
+
+}
+```
+---
+
+### /src/test/java/com/in28minutes/spring/basics/springin5steps/basic/BinarySearchXMLConfigurationTest.java
+
+```java
+package com.in28minutes.spring.basics.springin5steps.basic;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+
+//Load the context
+@RunWith(SpringRunner.class)
+@ContextConfiguration(locations="/testContext.xml")
+public class BinarySearchXMLConfigurationTest {
+
+	// Get this bean from the context
+	@Autowired
+	BinarySearchImpl binarySearch;
+
+	@Test
+	public void testBasicScenario() {
+		
+		// call method on binarySearch
+		int actualResult = binarySearch.binarySearch(new int[] {}, 5);
+
+		// check if the value is correct
+		assertEquals(3, actualResult);
+
+	}
+
+}
+```
+---
+
+### /src/test/java/com/in28minutes/spring/basics/springin5steps/cdi/SomeCdiBusinessTest.java
+
+```java
+package com.in28minutes.spring.basics.springin5steps.cdi;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class SomeCdiBusinessTest {
+
+	// Inject Mock
+	@InjectMocks
+	SomeCdiBusiness business;
+
+	// Create Mock
+	@Mock
+	SomeCdiDao daoMock;
+
+	@Test
+	public void testBasicScenario() {
+		Mockito.when(daoMock.getData()).thenReturn(new int[] { 2, 4 });
+		assertEquals(4, business.findGreatest());
+	}
+
+	@Test
+	public void testBasicScenario_NoElements() {
+		Mockito.when(daoMock.getData()).thenReturn(new int[] { });
+		assertEquals(Integer.MIN_VALUE, business.findGreatest());
+	}
+
+	@Test
+	public void testBasicScenario_EqualElements() {
+		Mockito.when(daoMock.getData()).thenReturn(new int[] { 2,2});
+		assertEquals(2, business.findGreatest());
+	}
+
+}
+```
+---
+
 ### /src/test/java/com/in28minutes/spring/basics/springin5steps/SpringIn5StepsBasicApplicationTests.java
 
 ```java
@@ -719,11 +833,10 @@ package com.in28minutes.spring.basics.springin5steps;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+//@SpringBootTest
 public class SpringIn5StepsBasicApplicationTests {
 
 	@Test
@@ -731,5 +844,23 @@ public class SpringIn5StepsBasicApplicationTests {
 	}
 
 }
+```
+---
+
+### /src/test/resources/testContext.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<import resource="classpath:applicationContext.xml"/>
+	
+</beans>
 ```
 ---
