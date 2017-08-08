@@ -22,16 +22,44 @@ Thats what we would learn during this incredible journey through Spring Framewor
 - ...
 - ...
 
-You will learn
-- 
+### What You will learn
+
+- You will learn to Topic No 1
+- You will understand about Topic No 1
+- You will develop a great application
+
+##### Examples
+- You will learn to design and develop SOAP and RESTful web services with Spring Boot
+- You will learn the magic of Spring Boot - Auto Configuration, Spring Initializr and Starter Projects
+- You will learn to connect web services to JPA/Hibernate with Spring Boot
+- You will understand how to implement Exception Handling, Validation, HATEOAS and filtering for RESTful Web Services.
+- You will learn to use a wide variety of Spring Boot Starter Projects - Spring Boot Web, Spring Boot Web Services, Spring Boot Data JPA
+- You will learn how to version, monitor (Spring Boot Actuator) and document (Swagger) your RESTful Web Services with Spring Boot
+- You will understand the best practices in designing RESTful web services
+- You will understand about WSDL, SOAP Header, SOAP Body, SOAP Fault, XSD, JAXB and EndPoint
+- You will develop a Todo Management Application step by step with login and logout functionalities
+- You will learn to use an Annotation based approach - @RequestParam, @ModelAttribute, @SessionAttributes
+- You will understand the basics of developing a Web Application - POST, GET, HTTP, MVC Pattern
+- You will learn the basics of JSP, JSTL, EL, Spring Tag Libraries
+- You will learn some of the magic of Spring Boot
+- You will understand Spring MVC in depth - DispatcherServlet , Model, Controllers and ViewResolver
+- You will learn the magic of Spring Boot - Auto Configuration, Spring Initializr and Starter Projects
+- You will learn to develop RESTful web services with Spring Boot
+- You will learn to develop a Web Application connecting to JPA/Hibernate Step by Step with Spring MVC and Spring Boot
+- You will learn to use a wide variety of Spring Boot Starter Projects - Spring Boot Web, Spring Boot Test, Spring Boot Data JPA, Spring Boot Data REST
+- You will understand Spring MVC in depth - DispatcherServlet , Model, Controllers and ViewResolver
+- You will understand how to make best use of Spring Boot Actuator and Spring Boot Developer Tools
+- You will learn how to externalise application configuration using Spring Boot Profiles and Dynamic Configuration
+- You will understand and use the embedded servlet container options provided by Spring Boot - Tomcat, Jetty and Undertow
+- You will learn to write great Unit and Integration tests using Spring Boot Starter Test
+
+### Requirements
+- You should have working knowledge of Java and Annotations. 
+- We will help you install Eclipse and get up and running with Maven and Tomcat.
+
 
 ### Step Wise Details
 Refer each section
-
-### Expectations
-- You should know Java and Annotations. 
-- You are NOT expected to have any experience with Eclipse, Maven or Tomcat.
-- We will help you install Eclipse and get up and running with Maven and Tomcat.
 
 ## Installing Tools
 - Installation Video : https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
