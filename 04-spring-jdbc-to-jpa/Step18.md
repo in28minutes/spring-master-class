@@ -1,97 +1,3 @@
-##  Spring JDBC and JPA (Hibernate)
-
-Let's play and learn more about Spring
-
-- Step 01 - Setting up a project with JDBC, JPA, H2 and Web Dependencies
-- Step 02 - Launching up H2 Console
-- Step 03 - Creating a Database Table in H2
-- Step 04 - Populate data into Person Table
-- Step 05 - Implement findAll
-
-## Connecting to My SQL and Other Databases
-
-Spring Boot makes it easy to switch databases! Yeah really simple.
-
-## Steps
-- Install MySQL and Setup Schema
-- Remove H2 dependency from pom.xml
-- Add MySQL (or your database) dependency to pom.xml
-```xml
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-</dependency>
-```
-- Configure application.properties
-
-```properties
-spring.jpa.hibernate.ddl-auto=none
-spring.datasource.url=jdbc:mysql://localhost:3306/person_example
-spring.datasource.username=personuser
-spring.datasource.password=YOUR_PASSWORD
-```
-
-- Restart the app and You are ready!
-
-> Spring Boot can setup the database for you using Hibernate
-
-Things to note:
-- Spring Boot chooses a default value for you based on whether it thinks your database is embedded (default create-drop) or not (default none).
-- ```spring.jpa.hibernate.ddl-auto``` is the setting to perform SchemaManagementTool actions automatically
-   - none : No action will be performed.
-   - create-only : Database creation will be generated.
-   - drop : Database dropping will be generated.
-   - create : Database dropping will be generated followed by database creation.
-   - validate : Validate the database schema
-   - update : Update the database schema
-- Reference : https://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#configurations-hbmddl
-
-
-application.properties
-```
-#none, validate, update, create, create-drop
-spring.jpa.hibernate.ddl-auto=create
-```
-
-## Installing and Setting Up MySQL
-
-- Install MySQL https://dev.mysql.com/doc/en/installing.html
-  - More details - http://www.mysqltutorial.org/install-mysql/
-  - Trouble Shooting - https://dev.mysql.com/doc/refman/en/problems.html
-- Startup the Server (as a service)
-- Go to command prompt (or terminal)
-   - Execute following commands to create a database and a user
-
-```
-mysql --user=user_name --password db_name
-create database person_example;
-create user 'personuser'@'localhost' identified by 'YOUR_PASSWORD';
-grant all on person_example.* to 'personuser'@'localhost';
-```
-
-- Execute following sql queries to create the table and insert the data
-
-Table
-
-```sql
-create table person
-(
-	id integer not null,
-	birth_date timestamp,
-	location varchar(255),
-	name varchar(255),
-	primary key (id)
-);
-
-```
-
-Data
-
-```sql
-INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(10001,  'Ranga', 'Hyderabad',sysdate());
-INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(10002,  'James', 'New York',sysdate());
-INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(10003,  'Pieter', 'Amsterdam',sysdate());
-```
 
 ## Complete Code Example
 
@@ -400,6 +306,7 @@ public class PersonJpaRepository {
 		Person person = findById(id);
 		entityManager.remove(person);
 	}
+
 }
 ```
 ---
@@ -421,7 +328,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.in28minutes.database.databasedemo.entity.Person;
 import com.in28minutes.database.databasedemo.jpa.PersonJpaRepository;
 
-//@SpringBootApplication
+@SpringBootApplication
 public class JpaDemoApplication implements CommandLineRunner {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -443,71 +350,6 @@ public class JpaDemoApplication implements CommandLineRunner {
 		
 		logger.info("Update 10003 -> {}", 
 				repository.update(new Person(10003, "Pieter", "Utrecht", new Date())));
-		
-		repository.deleteById(10002);
-
-		logger.info("All users -> {}", repository.findAll());
-	}
-}
-```
----
-
-### /src/main/java/com/in28minutes/database/databasedemo/springdata/PersonSpringDataRepository.java
-
-```java
-package com.in28minutes.database.databasedemo.springdata;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-import com.in28minutes.database.databasedemo.entity.Person;
-
-@Repository
-public interface PersonSpringDataRepository 
-				extends JpaRepository<Person, Integer>{
-}
-```
----
-
-### /src/main/java/com/in28minutes/database/databasedemo/SpringDataDemoApplication.java
-
-```java
-package com.in28minutes.database.databasedemo;
-
-import java.util.Date;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.in28minutes.database.databasedemo.entity.Person;
-import com.in28minutes.database.databasedemo.springdata.PersonSpringDataRepository;
-
-@SpringBootApplication
-public class SpringDataDemoApplication implements CommandLineRunner {
-
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
-
-	@Autowired
-	PersonSpringDataRepository repository;
-
-	public static void main(String[] args) {
-		SpringApplication.run(SpringDataDemoApplication.class, args);
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		
-		logger.info("User id 10001 -> {}", repository.findById(10001));
-		
-		logger.info("Inserting -> {}", 
-				repository.save(new Person("Tara", "Berlin", new Date())));
-		
-		logger.info("Update 10003 -> {}", 
-				repository.save(new Person(10003, "Pieter", "Utrecht", new Date())));
 		
 		repository.deleteById(10002);
 
@@ -621,34 +463,3 @@ public class SpringJdbcDemoApplicationTests {
 }
 ```
 ---
-
-
-
-
-## Notes
-
-#### JdbcTemplate AutoConfiguration
-```
-=========================
-AUTO-CONFIGURATION REPORT
-=========================
-
-DataSourceAutoConfiguration matched:
-   - @ConditionalOnClass found required classes 'javax.sql.DataSource', 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
-
-DataSourceTransactionManagerAutoConfiguration matched:
-   - @ConditionalOnClass found required classes 'org.springframework.jdbc.core.JdbcTemplate', 'org.springframework.transaction.PlatformTransactionManager'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
-
-H2ConsoleAutoConfiguration matched:
-   - @ConditionalOnClass found required class 'org.h2.server.web.WebServlet'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
-   - found ConfigurableWebEnvironment (OnWebApplicationCondition)
-   - @ConditionalOnProperty (spring.h2.console.enabled=true) matched (OnPropertyCondition)
-
-JdbcTemplateAutoConfiguration matched:
-   - @ConditionalOnClass found required classes 'javax.sql.DataSource', 'org.springframework.jdbc.core.JdbcTemplate'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
-   - @ConditionalOnSingleCandidate (types: javax.sql.DataSource; SearchStrategy: all) found a primary bean from beans 'dataSource' (OnBeanCondition)
-
-JdbcTemplateAutoConfiguration.JdbcTemplateConfiguration#jdbcTemplate matched:
-   - @ConditionalOnMissingBean (types: org.springframework.jdbc.core.JdbcOperations; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-```
