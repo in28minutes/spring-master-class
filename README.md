@@ -17,41 +17,16 @@ Learn the magic of Spring Framework. From IOC (Inversion of Control), DI (Depend
 
 Spring Framework remains as popular today as it was when I first used it 12 years back. How is this possible in the incredibly dynamic world where architectures have completely changed?
 
-Thats what we would learn during this incredible journey through Spring Framework. We will Learn 
-- Basics of Spring Framework
-- ...
-- ...
-
 ### What You will learn
 
-- You will learn to Topic No 1
-- You will understand about Topic No 1
-- You will develop a great application
-
-##### Examples
-- You will learn to design and develop SOAP and RESTful web services with Spring Boot
-- You will learn the magic of Spring Boot - Auto Configuration, Spring Initializr and Starter Projects
-- You will learn to connect web services to JPA/Hibernate with Spring Boot
-- You will understand how to implement Exception Handling, Validation, HATEOAS and filtering for RESTful Web Services.
-- You will learn to use a wide variety of Spring Boot Starter Projects - Spring Boot Web, Spring Boot Web Services, Spring Boot Data JPA
-- You will learn how to version, monitor (Spring Boot Actuator) and document (Swagger) your RESTful Web Services with Spring Boot
-- You will understand the best practices in designing RESTful web services
-- You will understand about WSDL, SOAP Header, SOAP Body, SOAP Fault, XSD, JAXB and EndPoint
-- You will develop a Todo Management Application step by step with login and logout functionalities
-- You will learn to use an Annotation based approach - @RequestParam, @ModelAttribute, @SessionAttributes
-- You will understand the basics of developing a Web Application - POST, GET, HTTP, MVC Pattern
-- You will learn the basics of JSP, JSTL, EL, Spring Tag Libraries
-- You will learn some of the magic of Spring Boot
+- You will learn the basics of Spring Framework - Dependency Injection, IOC Container, Application Context and Bean Factory.
+- You will understand how to use Spring Annotations - @Autowired, @Component, @Service, @Repository, @Configuration, @Primary....
 - You will understand Spring MVC in depth - DispatcherServlet , Model, Controllers and ViewResolver
-- You will learn the magic of Spring Boot - Auto Configuration, Spring Initializr and Starter Projects
-- You will learn to develop RESTful web services with Spring Boot
-- You will learn to develop a Web Application connecting to JPA/Hibernate Step by Step with Spring MVC and Spring Boot
-- You will learn to use a wide variety of Spring Boot Starter Projects - Spring Boot Web, Spring Boot Test, Spring Boot Data JPA, Spring Boot Data REST
-- You will understand Spring MVC in depth - DispatcherServlet , Model, Controllers and ViewResolver
-- You will understand how to make best use of Spring Boot Actuator and Spring Boot Developer Tools
-- You will learn how to externalise application configuration using Spring Boot Profiles and Dynamic Configuration
-- You will understand and use the embedded servlet container options provided by Spring Boot - Tomcat, Jetty and Undertow
-- You will learn to write great Unit and Integration tests using Spring Boot Starter Test
+- You will use a variety of Spring Boot Starters - Spring Boot Starter Web, Starter Data Jpa, Starter Test
+- You will learn the basics of Spring Boot, Spring AOP, Spring JDBC and JPA
+- You will learn the basics of Eclipse, Maven, JUnit and Mockito
+- You will develop a basic Web application step by step using JSP Servlets and Spring MVC
+- You will learn to write unit tests with XML, Java Application Contexts and Mockito
 
 ### Requirements
 - You should have working knowledge of Java and Annotations. 
@@ -116,51 +91,3 @@ Refer each section
 - [Facebook](http://facebook.com/in28minutes)
 - [Twitter](http://twitter.com/in28minutes)
 - [Google Plus](https://plus.google.com/u/3/110861829188024231119)
-
-## Todo
- - Recording
-   - Spring Video - Editing and Re-recording DONE
-   - RESTful Web Services Best Practices
-   - Intro Video for the course
-   - Intro Video for SOAP Section of the Course
-   - Intro Video for RESTful Web Services Section of the Course
-   - Conclusion Video for the course
-   - Overview Videos for the different sections
-   - How to make best use of the course
-     - Course GIT Repository Overview
-     - Recommended path through the course
-   - Importing a Maven Project Example
- - Github Updates
-   - Create/Update Readme.md for all the different parts
-   - Include Step Wise Details
-   - Commit code for Spring, Spring Boot and JPA
- - Editing & Cutting
-   - Editing for RESTful Web Services
-   - Cutting Videos for all parts
- - Writing
-   - Description for the course on Udemy
- - Update the in28minutes course template repository with the needed stuff
-
-## Let's have some fun
-- What are we waiting for?
-- Let's have some fun with developing web services with spring in more than 75 Steps.
-- I had fun creating this course and hope you would too.
-- Thanks for your interest in Our Course 
-  - I hope you’re as excited as I am!  
-  - If you’re ready to learn more and sign up for the course, 
-  - go ahead and hit that Enroll button, 
-  - or take a test drive by using the Free Preview feature.  
-- See you in the course!
-
-## Exercises
-- TODO
-
-## Future Things To Do
-- TODO
-
-## Conclusion
-- Thats a lot of ground you have covered over the last so and so..
-- To find out more about *** use these References  
-- I had fun creating this course and I'm sure you had some fun too.
-- Good Luck and Bye from the team here at in28Minutes
-- Do not forget to leave us a review.
