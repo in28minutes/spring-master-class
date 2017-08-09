@@ -1,6 +1,6 @@
 ##  Spring JDBC and JPA (Hibernate)
 
-Let's play and learn more about Spring
+Let's play and learn more about Spring JDBC, JPA and Spring Data JPA
 
 - Step 01 - Setting up a project with JDBC, JPA, H2 and Web Dependencies
 - Step 02 - Launching up H2 Console

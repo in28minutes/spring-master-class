@@ -1,6 +1,6 @@
 ##  AOP with Spring and AspectJ
 
-Let's play and learn more about Spring
+Let's play and learn more about Spring AOP
 
 - Step 01 - Setting up AOP Example - Part 1 
 - Step 02 - Setting up AOP Example - Part 2
