@@ -92,3 +92,31 @@ insert into person(id, birth_date,location, name) values(10003,sysdate(),'Amster
 ## Complete Code Example
 
 TODO
+
+## Notes
+
+#### JdbcTemplate AutoConfiguration
+```
+=========================
+AUTO-CONFIGURATION REPORT
+=========================
+
+DataSourceAutoConfiguration matched:
+   - @ConditionalOnClass found required classes 'javax.sql.DataSource', 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
+
+DataSourceTransactionManagerAutoConfiguration matched:
+   - @ConditionalOnClass found required classes 'org.springframework.jdbc.core.JdbcTemplate', 'org.springframework.transaction.PlatformTransactionManager'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
+
+H2ConsoleAutoConfiguration matched:
+   - @ConditionalOnClass found required class 'org.h2.server.web.WebServlet'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
+   - found ConfigurableWebEnvironment (OnWebApplicationCondition)
+   - @ConditionalOnProperty (spring.h2.console.enabled=true) matched (OnPropertyCondition)
+
+JdbcTemplateAutoConfiguration matched:
+   - @ConditionalOnClass found required classes 'javax.sql.DataSource', 'org.springframework.jdbc.core.JdbcTemplate'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
+   - @ConditionalOnSingleCandidate (types: javax.sql.DataSource; SearchStrategy: all) found a primary bean from beans 'dataSource' (OnBeanCondition)
+
+JdbcTemplateAutoConfiguration.JdbcTemplateConfiguration#jdbcTemplate matched:
+   - @ConditionalOnMissingBean (types: org.springframework.jdbc.core.JdbcOperations; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+```
