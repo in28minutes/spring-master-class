@@ -1,4 +1,13 @@
+# Introduction Videos
+
+# Introduction
+- Spring Master Class - Preview
+- Spring Master Class - Course Overview
+- Spring Master Class - Git Repository
+- Spring Master Class - Installing Basic Tools
+
 # Spring Framework in 10 Steps
+- 0000 - 02 - Section Introduction - Spring in 10 Steps
 - Step 1 - Setting up a Spring Project using htttp://start.spring.io
 - Step 2 - Understanding Tight Coupling using the Binary Search Algorithm Example
 - Step 3 - Making the Binary Search Algorithm Example Loosely Coupled
@@ -10,7 +19,25 @@
 - Step 9 - Spring Projects
 - Step 10 - Why is Spring Popular?
 
+# Eclipse in 5 Steps
+
+- 0000 - 04 - Section Introduction - Eclipse in 5 Steps
+- Step 1 : Create a Java Project 
+- Step 2 : Keyboard Shortcuts
+- Step 3 : Views and Perspectives
+- Step 4 : Save Actions
+- Step 5 : Code Generation
+
+# Maven in 5 Steps
+- 0000 - 05 - Section Introduction - Maven in 5 Steps
+- Step 1 : Creating and importing a Maven Project
+- Step 2 : Understanding Project Object Model - pom.xml
+- Step 3 : Maven Build Life Cycle
+- Step 4 : How does Maven Work?
+- Step 5 : Important Maven Commands
+
 # Spring in Depth
+- 0000 - 03 - Section Introduction - Spring in Depth
 - Step 11 - Dependency Injection - A few more examples
 - Step 12 - Autowiring in Depth - by Name and @Primary
 - Step 13 - Autowiring in Depth - @Qualifier annotation
@@ -29,24 +56,8 @@
 - Step 25 - @Component vs @Service vs @Repository vs @Controller
 - Step 26 - Read values from external properties file
 
-# Introduction Section to All Tools
-
-## Eclipse in 5 Steps
-
-- Step 1 : Create a Java Project 
-- Step 2 : Keyboard Shortcuts
-- Step 3 : Views and Perspectives
-- Step 4 : Save Actions
-- Step 5 : Code Generation
-
-## Maven in 5 Steps
-- Step 1 : Creating and importing a Maven Project
-- Step 2 : Understanding Project Object Model - pom.xml
-- Step 3 : Maven Build Life Cycle
-- Step 4 : How does Maven Work?
-- Step 5 : Important Maven Commands
-
 ## JUnit in 5 Steps
+- 0000 - 06 - Section Introduction - JUnit in 5 Steps
 - Step 1 : What is JUnit and Unit Testing?
 - Step 2 : First JUnit Project and Green Bar
 - Step 3 : First Code and First Unit Test
@@ -54,18 +65,22 @@
 - Step 5 : Important annotations
 
 ## Mockito in 5 Steps
+- 0000 - 07 - Section Introduction - Mockito in 5 Steps
 - Step 1 : Setting up an example using http://start.spring.io.
 - Step 2 : Using a Stubs - Disadvantages
 - Step 3 : Your first mock.
 - Step 4 : Using Mockito Annotations - @Mock, @InjectMocks, @RunWith(MockitoJUnitRunner.class)
 - Step 5 : Mocking List interface
 
-# Spring Unit Testing
+# Unit Testing with Spring Framework
+- 0000 - 08 - Section Introduction - Unit Testing with Spring Framework
 - Step 27 - Spring Unit Testing with a Java Context
 - Step 28 - Spring Unit Testing with an XML Context
 - Step 29 - Spring Unit Testing with Mockito
 
 # Basic Web Application
+
+0000 - 09 - Section Introduction - Basic Web Application
 
 ## Steps 1 to 7 - Build a normal Web Application
 - Understand Basics of HTTP 
@@ -86,6 +101,7 @@
 - Step 17 : Spring Auto-wiring and Dependency Management - @Autowired and @Service
 
 # Spring Boot in 10 Steps
+- 0000 - 10 - Section Introduction - Spring Boot in 10 Steps
 - Step 0 : Spring Boot in 10 Steps - Section Introduction
 - Step 1 : Introduction to Spring Boot - Goals and Important Features
 - Step 2 : Developing Spring Applications before Spring Boot
@@ -99,7 +115,7 @@
 - Step 10 : Spring Boot Developer Tools
 
 # Spring AOP
-
+- 0000 - 11 - Section Introduction - Spring AOP
 - Step 01 - Setting up AOP Example - Part 1 
 - Step 02 - Setting up AOP Example - Part 2
 - Step 03 - Defining an @Before advice
@@ -112,6 +128,7 @@
 
 
 # Spring JDBC and JPA
+- 0000 - 12 - Section Introduction - Spring JDBC, JPA and Spring Data
 - Step 01 - Setting up a project with JDBC, JPA, H2 and Web Dependencies
 - Step 02 - Launching up H2 Console
 - Step 03 - Creating a Database Table in H2
@@ -132,6 +149,17 @@
 - Step 18 - Implementing findAll using JPQL Named Query
 - Step 19 - Introduction to Spring Data JPA
 - Step 20 - Connecting to Other Databases
+
+# Conclusion
+- Spring Master Class - Congratulations on Completing the Course
+
+# Spring Old Course
+- 0000 - 13 - Section Introduction - Spring Old Course
+
+
+
+
+
 
 
 ## Spring in depth
