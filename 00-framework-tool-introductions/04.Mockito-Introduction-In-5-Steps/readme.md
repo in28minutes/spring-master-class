@@ -5,7 +5,7 @@ Mockito is the most famous mocking framework in Java.
 - Git Repository - https://github.com/in28minutes/getting-started-in-5-steps
 - Pre-requisites 
     - Java & Eclipse - https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
-    - JUnit - https://www.youtube.com/watch?v=AN4NCnc4eZg
+    - JUnit - https://courses.in28minutes.com/p/junit-tutorial-for-beginners
 - Easier Static Imports
   - Window > Preferences > Java > Editor > Content Assist > Favorites
     - org.junit.Assert
