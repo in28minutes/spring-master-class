@@ -281,4 +281,11 @@ Sol :
 	1. Spring will run component scan , it will get BinarySearchImpl as component , then it will see 	it has some dependency , so it will not creates it bean initially . 
 	2. It will then see BubbleSortAlgorithm component and since it has no dependency , it will create its bean .
 	3. Now it will see bubblesort is the dependency for BinarySearchImpl , it will injects the dependency and create the bean for the same using constructor . 
+Case 2: We have BinarySearchImpl class ,and 2 sort Algorithms BubbleSort and QuickSort. 
+Sol :
+	1. Assume @Primary annotation is not present . In this case , spring will create the bean for BubbleSort and QuickSort , but it will fail to create the bean for BinarySearchImpl , since it doesn't know which algo to use for dependency injection . Finally , error will come. 
+	2. @Primary annotation can be used to resolve this conflict . It will tell spring to use that particular algo by default . 
+
+3. What if we remove @Component from BubbleSort and QuickSort ? 
+Sol: Spring will try to find dependency for BinarySearchImpl , which it will not get and hence error will come.
 ```
