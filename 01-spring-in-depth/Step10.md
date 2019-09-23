@@ -254,5 +254,27 @@ public class SpringIn5StepsApplicationTests {
 
 ##### Ponints to be Learned Here 
 ```
-1. 
+1. public class BinarySearchImpl {
+
+	@Autowired
+	private SortAlgorithm sortAlgorithm;
+	
+	public BinarySearchImpl(SortAlgorithm sortAlgo){
+	    this.sortAlgorithm = sortAlgo;
+	    }
+	
+	public int binarySearch(int[] numbers, int numberToSearchFor) {
+
+		int[] sortedNumbers = sortAlgorithm.sort(numbers);
+		System.out.println(sortAlgorithm);
+		// Search the array
+		return 3;
+	}
+
+  }
+  If we do create constructor for depedency injection than it is called as constructor injection . 
+ 
+2. How does @Component and @Autowire Work ? 
+Ans. Case 1 . We have BinarySearchImpl class and BubbleSortAlgorithm class only : 
+	Sol : Spring will run component scan , it will get BinarySearchImpl as component , then it will see it has some 	      dependency , so it will not creates it bean initially . 
 ```
