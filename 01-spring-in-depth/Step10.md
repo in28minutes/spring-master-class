@@ -276,7 +276,6 @@ public class SpringIn5StepsApplicationTests {
  
 2. How does @Component and @Autowire Work ? 
 Ans.Case 1 . We have BinarySearchImpl class and BubbleSortAlgorithm class only : 
-Sol : 1. Spring will run component scan , it will get BinarySearchImpl as component , then it will see 	it 		   has some dependency , so it will not creates it bean initially . 
-      2. It will then see BubbleSortAlgorithm component and since it has no dependency , it will create its bean . 
-	  3. Now it will see bubblesort is the dependency for BinarySearchImpl , it will injects the dependency and create the bean for the same using constructor . 
+Sol : 1. Spring will run component scan , it will get BinarySearchImpl as component , then it will see 	it has some dependency , so it will not creates it bean initially . 
+2. It will then see BubbleSortAlgorithm component and since it has no dependency , it will create its bean . 3. Now it will see bubblesort is the dependency for BinarySearchImpl , it will injects the dependency and create the bean for the same using constructor . 
 ```
