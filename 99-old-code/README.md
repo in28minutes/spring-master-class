@@ -9,7 +9,7 @@ Base directory for all our old code :)
    - Spring AOP Tutorial - with Aspectj Examples : https://www.youtube.com/watch?v=Og9Fyew8ltQ
    - Spring JDBC Tutorial  - with Examples : https://www.youtube.com/watch?v=1WgsDP10iqw
  - Udemy
-   - Complete Course on Udemy : https://www.udemy.com/spring-tutorial-for-beginners/
+   - Complete Course on Udemy : https://www.udemy.com/course/spring-tutorial-for-beginners/
 
 ### Section 1 Introduction
 
