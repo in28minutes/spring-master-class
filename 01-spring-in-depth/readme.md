@@ -1,6 +1,6 @@
 ##  Spring In Depth
 
-- Step 1 - Setting up a Spring Project using htttp://start.spring.io
+- Step 1 - Setting up a Spring Project using https://start.spring.io
 - Step 2 - Understanding Tight Coupling using the Binary Search Algorithm Example
 - Step 3 - Making the Binary Search Algorithm Example Loosely Coupled
 - Step 4 - Using Spring to Manage Dependencies - @Component, @Autowired
