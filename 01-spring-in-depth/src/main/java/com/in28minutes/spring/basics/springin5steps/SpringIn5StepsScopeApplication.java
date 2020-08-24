@@ -28,7 +28,7 @@ public class SpringIn5StepsScopeApplication {
 			LOGGER.info("{}", personDao.getJdbcConnection());
 
 			LOGGER.info("{}", personDao2);
-			LOGGER.info("{}", personDao.getJdbcConnection());
+			LOGGER.info("{}", personDao2.getJdbcConnection());
 		}
 	}
 }
