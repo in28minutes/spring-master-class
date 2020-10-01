@@ -1,13 +1,13 @@
-# Spring Master Class - Journey from Beginner to Expert
+# Spring Master Class - Journey from Beginner to The Expert
 
 [![Image](https://www.springboottutorial.com/images/Course-Spring-Framework-Master-Class---Beginner-to-Expert.png "Spring Master Class - Beginner to Expert")](https://www.udemy.com/course/spring-tutorial-for-beginners/)
 
 
-Learn the magic of Spring Framework. From IOC (Inversion of Control), DI (Dependency Injection), Application Context to the world of Spring Boot, AOP, JDBC and JPA. Get set for an incredible journey.
+Learn the magic of Spring Framework, From IOC (Inversion of Control), DI (Dependency Injection), Application Context to the world of Spring Boot, AOP, JDBC and JPA. Get set for an incredible journey.
 
 ### Introduction
 
-Spring Framework remains as popular today as it was when I first used it 12 years back. How is this possible in the incredibly dynamic world where architectures have completely changed?
+Spring Framework remains as popular today as it was when I first used it 12 YearS ago. How is this possible in the incredibly dynamic world where architectures have completely changed?
 
 ### What You will learn
 
@@ -22,7 +22,7 @@ Spring Framework remains as popular today as it was when I first used it 12 year
 
 ### Requirements
 - You should have working knowledge of Java and Annotations. 
-- We will help you install Eclipse and get up and running with Maven and Tomcat.
+- We will help you to install Eclipse and get up and running with Maven and Tomcat.
 
 
 ### Step Wise Details
@@ -34,11 +34,11 @@ Refer each section
 - PDF : https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
 
 ## Running Examples
-- Download the zip or clone the Git repository.
+- Download the zip file or clone the Git repository.
 - Unzip the zip file (if you downloaded one)
 - Open Command Prompt and Change directory (cd) to folder containing pom.xml
 - Open Eclipse 
-   - File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip
+   - File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip file
    - Select the right project
 - Choose the Spring Boot Application file (search for @SpringBootApplication)
 - Right Click on the file and Run as Java Application
@@ -54,6 +54,6 @@ Refer each section
 
 ## Keep Learning in28Minutes
 
-in28Minutes is creating amazing solutions for you to learn Spring Boot, Full Stack and the Cloud - Docker, Kubernetes, AWS, React, Angular etc. - [Check out all our courses here](https://github.com/in28minutes/learn)
+In only 28 Minutes it is creating amazing solutions for you to learn Spring Boot, Full Stack and the Cloud - Docker, Kubernetes, AWS, React, Angular etc. - [Check out all our courses here](https://github.com/in28minutes/learn)
 
 ![in28MinutesLearningRoadmap-July2019.png](https://github.com/in28minutes/in28Minutes-Course-Roadmap/raw/master/in28MinutesLearningRoadmap-July2019.png)
