@@ -3,7 +3,7 @@
 - Git Repository - https://github.com/in28minutes/getting-started-in-5-steps
 - Pre-requisites - Java & Eclipse - https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
 
-> If you are using mac, use Cmd instead of Ctrl. 
+> If you are using mac, use Cmd instead of Ctrl 
 > In Windows, use Windows -> Preferences for Preferences.
 
 - Step 1 : Create a Java Project 
