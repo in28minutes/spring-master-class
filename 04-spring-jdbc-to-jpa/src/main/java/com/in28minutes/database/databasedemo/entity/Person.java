@@ -2,10 +2,10 @@ package com.in28minutes.database.databasedemo.entity;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 
 @Entity
 @NamedQuery(name="find_all_persons", query="select p from Person p")
