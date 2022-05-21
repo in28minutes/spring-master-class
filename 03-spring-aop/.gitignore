@@ -1,0 +1,13 @@
+-.DS_Store
+.idea/
+target/
+*.iml
+*.ipr
+*.iws
+03-spring-aop/.classpath
+03-spring-aop/.project
+03-spring-aop/.settings/org.eclipse.core.resources.prefs
+03-spring-aop/.settings/org.eclipse.jdt.core.prefs
+03-spring-aop/.settings/org.eclipse.m2e.core.prefs
+03-spring-aop/.settings/org.eclipse.wst.common.component
+03-spring-aop/.settings/org.eclipse.wst.common.project.facet.core.xml
