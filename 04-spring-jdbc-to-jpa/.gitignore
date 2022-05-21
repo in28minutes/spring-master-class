@@ -1,0 +1,13 @@
+.DS_Store
+.idea/
+target/
+*.iml
+*.ipr
+*.iws
+04-spring-jdbc-to-jpa/.classpath
+04-spring-jdbc-to-jpa/.project
+04-spring-jdbc-to-jpa/.settings/org.eclipse.core.resources.prefs
+04-spring-jdbc-to-jpa/.settings/org.eclipse.jdt.core.prefs
+04-spring-jdbc-to-jpa/.settings/org.eclipse.m2e.core.prefs
+04-spring-jdbc-to-jpa/.settings/org.eclipse.wst.common.component
+04-spring-jdbc-to-jpa/.settings/org.eclipse.wst.common.project.facet.core.xml
