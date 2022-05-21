@@ -1,33 +1,31 @@
 package com.in28minutes.spring.basics.springin5steps.basic;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit4.SpringRunner;
 
-// Load the context
-// replaced @RunWith with @ExtendWith
-// replaced SpringRunner.class with SpringExtension.class
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = "/testContext.xml")
+//Load the context
+@RunWith(SpringRunner.class)
+@ContextConfiguration(locations="/testContext.xml")
 public class BinarySearchXMLConfigurationTest {
 
-    // Get this bean from the context
-    @Autowired
-    BinarySearchImpl binarySearch;
+	// Get this bean from the context
+	@Autowired
+	BinarySearchImpl binarySearch;
 
-    @Test
-    public void testBasicScenario() {
+	@Test
+	public void testBasicScenario() {
+		
+		// call method on binarySearch
+		int actualResult = binarySearch.binarySearch(new int[] {}, 5);
 
-        // call method on binarySearch
-        int actualResult = binarySearch.binarySearch(new int[]{}, 5);
+		// check if the value is correct
+		assertEquals(3, actualResult);
 
-        // check if the value is correct
-        assertEquals(3, actualResult);
-
-    }
+	}
 
 }
