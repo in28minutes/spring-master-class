@@ -1,17 +1,18 @@
 package com.in28minutes.spring.basics.springin5steps.basic;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.in28minutes.spring.basics.springin5steps.SpringIn5StepsBasicApplication;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-//Load the context
-@RunWith(SpringRunner.class)
+// Load the context
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringIn5StepsBasicApplication.class)
 public class BinarySearchTest {
 
