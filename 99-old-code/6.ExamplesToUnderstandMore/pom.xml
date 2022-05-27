@@ -10,7 +10,7 @@
 	<description>This pom acts as the parent pom for the entire project.</description>
 
 	<properties>
-		<spring-core-version>4.1.6.RELEASE</spring-core-version>
+		<spring-core-version>5.3.18</spring-core-version>
 	</properties>
 
 	<dependencies>
