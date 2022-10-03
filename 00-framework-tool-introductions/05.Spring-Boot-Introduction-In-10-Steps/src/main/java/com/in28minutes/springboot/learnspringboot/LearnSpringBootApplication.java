@@ -1,12 +1,9 @@
-package com.in28minutes.learnspringboot;
+package com.in28minutes.springboot.learnspringboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-//@SpringBootConfiguration
-//@EnableAutoConfiguration
-//@ComponentScan
 public class LearnSpringBootApplication {
 
 	public static void main(String[] args) {

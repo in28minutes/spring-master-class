@@ -1,11 +1,18 @@
 package com.in28minutes.junit;
 
 public class MyMath {
-	int sum(int[] numbers) {
+
+	//{1,2,3} => 1+2+3 = 6
+	public int calculateSum(int[] numbers) {
+		
 		int sum = 0;
-		for (int i : numbers) {
-			sum += i;
+		
+		for(int number:numbers) {
+			sum += number;
 		}
+		
 		return sum;
 	}
+	
+
 }

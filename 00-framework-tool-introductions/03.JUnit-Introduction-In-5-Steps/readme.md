@@ -1,9 +1,5 @@
 ## First 5 Steps in JUnit
 
-- Git Repository - https://github.com/in28minutes/getting-started-in-5-steps
-- Pre-requisites - Java & Eclipse - https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
-- We will use embedded maven in Eclipse
-
 ### Step 1 : What is JUnit and Unit Testing?
  - What is JUnit?
  - What is Unit Testing?
@@ -26,6 +22,11 @@
   - @Before @After annotations
   - @BeforeClass @AfterClass annotations
 
+
+<!---
+Current Directory : /Users/rangakaranam/Ranga/git/00.courses/spring-boot-master-class/03.JUnit-Introduction-In-5-Steps-V2
+-->
+
 ## Complete Code Example
 
 
@@ -35,35 +36,108 @@
 package com.in28minutes.junit;
 
 public class MyMath {
-	int sum(int[] numbers) {
+
+	//{1,2,3} => 1+2+3 = 6
+	public int calculateSum(int[] numbers) {
+		
 		int sum = 0;
-		for (int i : numbers) {
-			sum += i;
+		
+		for(int number:numbers) {
+			sum += number;
 		}
+		
 		return sum;
 	}
+	
+
 }
 ```
 ---
 
-### /test/com/in28minutes/junit/AssertTest.java
+### /test/com/in28minutes/junit/MyAssertTest.java
 
 ```java
 package com.in28minutes.junit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.util.Arrays;
+import java.util.List;
 
-public class AssertTest {
+import org.junit.jupiter.api.Test;
+
+class MyAssertTest {
+
+	List<String> todos = Arrays.asList("AWS", "Azure", "DevOps");
+	
+	@Test
+	void testAsserts() {
+		boolean test = todos.contains("AWS");//Result
+		boolean test2 = todos.contains("GCP");//Result
+		
+		//assertEquals(true, test);
+		assertTrue(test);
+		assertFalse(test2);
+		//assertNull,assertNotNull
+		assertArrayEquals(new int[] {1,2}, new int[] {2, 1});
+		
+		assertEquals(3, todos.size());		
+	}
+
+}
+```
+---
+
+### /test/com/in28minutes/junit/MyBeforeAfterTest.java
+
+```java
+package com.in28minutes.junit;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class MyBeforeAfterTest {
+
+	
+	@BeforeAll
+	static void beforeAll() {
+		System.out.println("beforeAll");
+	}
+	
+	@BeforeEach
+	void beforeEach() {
+		System.out.println("BeforeEach");
+	}
 
 	@Test
-	public void test() {
-		boolean condn = true;
-		assertEquals(true, condn);
-		assertTrue(condn);
-		// assertFalse(condn);
+	void test1() {
+		System.out.println("test1");
+	}
+
+	@Test
+	void test2() {
+		System.out.println("test2");
+	}
+
+	@Test
+	void test3() {
+		System.out.println("test3");
+	}
+
+	@AfterEach
+	void afterEach() {
+		System.out.println("AfterEach");
+	}
+
+	@AfterAll
+	static void afterAll() {
+		System.out.println("afterAll");
 	}
 
 }
@@ -75,50 +149,24 @@ public class AssertTest {
 ```java
 package com.in28minutes.junit;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class MyMathTest {
-	MyMath myMath = new MyMath();
+class MyMathTest {
 
-	@Before
-	public void before() {
-		System.out.println("Before");
-	}
-
-	@After
-	public void after() {
-		System.out.println("After");
-	}
-
-	@BeforeClass
-	public static void beforeClass() {
-		System.out.println("Before Class");
-	}
-
-	@AfterClass
-	public static void afterClass() {
-		System.out.println("After Class");
-	}
-
-	// MyMath.sum
-	// 1,2,3 => 6
+	private MyMath math = new MyMath();
+	
 	@Test
-	public void sum_with3numbers() {
-		System.out.println("Test1");
-		assertEquals(6, myMath.sum(new int[] { 1, 2, 3 }));
+	void calculateSum_ThreeMemberArray() {		
+		assertEquals(6, math.calculateSum(new int[] {1,2,3}));
 	}
 
 	@Test
-	public void sum_with1number() {
-		System.out.println("Test2");
-		assertEquals(3, myMath.sum(new int[] { 3 }));
+	void calculateSum_ZeroLengthArray() {		
+		assertEquals(0, math.calculateSum(new int[] {}));
 	}
+
 }
 ```
 ---
