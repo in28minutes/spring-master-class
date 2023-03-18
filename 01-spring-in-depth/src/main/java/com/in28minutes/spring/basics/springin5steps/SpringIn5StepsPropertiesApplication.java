@@ -9,17 +9,15 @@ import com.in28minutes.spring.basics.springin5steps.properties.SomeExternalServi
 
 @Configuration
 @ComponentScan
-// 
 @PropertySource("classpath:app.properties")
 public class SpringIn5StepsPropertiesApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsPropertiesApplication.class)) {
+        try (var applicationContext = new AnnotationConfigApplicationContext(SpringIn5StepsPropertiesApplication.class)) {
 
-			SomeExternalService service = applicationContext.getBean(SomeExternalService.class);
-			System.out.println(service.returnServiceURL());
-		}
-	}
+            var service = applicationContext.getBean(SomeExternalService.class);
+            System.out.println(service.returnServiceURL());
+        }
+    }
 }

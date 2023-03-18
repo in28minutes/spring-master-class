@@ -5,12 +5,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SomeExternalService {
-	
-	@Value("${external.service.url}")
-	private String url;
-	
-	public String returnServiceURL(){
-		return url;
-	}
+
+    @Value("${external.service.url}")
+    private String url;
+
+    public String returnServiceURL() {
+        return url;
+    }
 
 }

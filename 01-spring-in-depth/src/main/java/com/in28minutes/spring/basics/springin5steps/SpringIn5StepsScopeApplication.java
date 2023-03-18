@@ -12,23 +12,22 @@ import com.in28minutes.spring.basics.springin5steps.scope.PersonDAO;
 @ComponentScan
 public class SpringIn5StepsScopeApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsScopeApplication.class)) {
+        try (var applicationContext = new AnnotationConfigApplicationContext(SpringIn5StepsScopeApplication.class)) {
 
-			PersonDAO personDao = applicationContext.getBean(PersonDAO.class);
+            var personDao = applicationContext.getBean(PersonDAO.class);
 
-			PersonDAO personDao2 = applicationContext.getBean(PersonDAO.class);
+            var personDao2 = applicationContext.getBean(PersonDAO.class);
 
-			LOGGER.info("{}", personDao);
-			LOGGER.info("{}", personDao.getJdbcConnection());
-			LOGGER.info("{}", personDao.getJdbcConnection());
+            LOGGER.info("{}", personDao);
+            LOGGER.info("{}", personDao.getJdbcConnection());
+            LOGGER.info("{}", personDao.getJdbcConnection());
 
-			LOGGER.info("{}", personDao2);
-			LOGGER.info("{}", personDao.getJdbcConnection());
-		}
-	}
+            LOGGER.info("{}", personDao2);
+            LOGGER.info("{}", personDao.getJdbcConnection());
+        }
+    }
 }

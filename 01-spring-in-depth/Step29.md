@@ -1,140 +1,123 @@
-
 ## Complete Code Example
-
 
 ### /pom.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.in28minutes.spring.basics</groupId>
-	<artifactId>spring-in-5-steps</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+    <groupId>com.in28minutes.spring.basics</groupId>
+    <artifactId>spring-in-5-steps</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-	<name>spring-in-5-steps</name>
-	<description>Demo project for Spring Boot</description>
+    <name>spring-in-5-steps</name>
+    <description>Demo project for Spring Boot</description>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>17</java.version>
+    </properties>
 
-	<dependencies>
+    <dependencies>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-			<version>1</version>
-		</dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
 
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
 
-<!-- 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency> -->
-	</dependencies>
+        <!-- 
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-test</artifactId>
+                    <scope>test</scope>
+                </dependency> -->
+    </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
-	<repositories>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 
 </project>
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/componentscan/ComponentDAO.java
@@ -148,18 +131,19 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ComponentDAO {
 
-	@Autowired
-	ComponentJdbcConnection jdbcConnection;
+    @Autowired
+    ComponentJdbcConnection jdbcConnection;
 
-	public ComponentJdbcConnection getJdbcConnection() {
-		return jdbcConnection;
-	}
+    public ComponentJdbcConnection getJdbcConnection() {
+        return jdbcConnection;
+    }
 
-	public void setComponentJdbcConnection(ComponentJdbcConnection jdbcConnection) {
-		this.jdbcConnection = jdbcConnection;
-	}
+    public void setComponentJdbcConnection(ComponentJdbcConnection jdbcConnection) {
+        this.jdbcConnection = jdbcConnection;
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/componentscan/ComponentJdbcConnection.java
@@ -173,14 +157,15 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE, 
-		proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE,
+        proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class ComponentJdbcConnection {
-	public ComponentJdbcConnection() {
-		System.out.println("JDBC Connection");
-	}
+    public ComponentJdbcConnection() {
+        System.out.println("JDBC Connection");
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/basic/BinarySearchImpl.java
@@ -203,33 +188,34 @@ import org.springframework.stereotype.Service;
 @Service
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class BinarySearchImpl {
-	
-	private Logger logger = LoggerFactory.getLogger(this.getClass()); 
 
-	@Autowired
-	@Qualifier("bubble")
-	private SortAlgorithm sortAlgorithm;
-	
-	public int binarySearch(int[] numbers, int numberToSearchFor) {
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-		int[] sortedNumbers = sortAlgorithm.sort(numbers);
-		System.out.println(sortAlgorithm);
-		// Search the array
-		return 3;
-	}
-	
-	@PostConstruct
-	public void postConstruct() {
-		logger.info("postConstruct");
-	}
+    @Autowired
+    @Qualifier("bubble")
+    private SortAlgorithm sortAlgorithm;
 
-	@PreDestroy
-	public void preDestroy() {
-		logger.info("preDestroy");
-	}
+    public int binarySearch(int[] numbers, int numberToSearchFor) {
+
+        int[] sortedNumbers = sortAlgorithm.sort(numbers);
+        System.out.println(sortAlgorithm);
+        // Search the array
+        return 3;
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        logger.info("postConstruct");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        logger.info("preDestroy");
+    }
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/basic/BubbleSortAlgorithm.java
@@ -244,12 +230,13 @@ import org.springframework.stereotype.Service;
 @Service
 @Qualifier("bubble")
 public class BubbleSortAlgorithm implements SortAlgorithm {
-	public int[] sort(int[] numbers) {
-		// Logic for Bubble Sort
-		return numbers;
-	}
+    public int[] sort(int[] numbers) {
+        // Logic for Bubble Sort
+        return numbers;
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/basic/QuickSortAlgorithm.java
@@ -263,12 +250,13 @@ import org.springframework.stereotype.Service;
 @Service
 @Qualifier("quick")
 public class QuickSortAlgorithm implements SortAlgorithm {
-	public int[] sort(int[] numbers) {
-		// Logic for Quick Sort
-		return numbers;
-	}
+    public int[] sort(int[] numbers) {
+        // Logic for Quick Sort
+        return numbers;
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/basic/SortAlgorithm.java
@@ -277,9 +265,10 @@ public class QuickSortAlgorithm implements SortAlgorithm {
 package com.in28minutes.spring.basics.springin5steps.basic;
 
 public interface SortAlgorithm {
-	public int[] sort(int[] numbers);
+    public int[] sort(int[] numbers);
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/cdi/SomeCdiBusiness.java
@@ -293,30 +282,32 @@ import javax.inject.Named;
 @Named
 public class SomeCdiBusiness {
 
-	@Inject
-	SomeCdiDao someCdiDao;
+    @Inject
+    SomeCdiDao someCdiDao;
 
-	public SomeCdiDao getSomeCDIDAO() {
-		return someCdiDao;
-	}
+    public SomeCdiDao getSomeCDIDAO() {
+        return someCdiDao;
+    }
 
-	public void setSomeCDIDAO(SomeCdiDao someCdiDao) {
-		this.someCdiDao = someCdiDao;
-	}
+    public void setSomeCDIDAO(SomeCdiDao someCdiDao) {
+        this.someCdiDao = someCdiDao;
+    }
 
-	public int findGreatest() {
-		int greatest = Integer.MIN_VALUE;
-		int[] data = someCdiDao.getData();
-		for (int value : data) {
-			if (value > greatest) {
-				greatest = value;
-			}
-		}
-		return greatest;
-	}
+    public int findGreatest() {
+        int greatest = Integer.MIN_VALUE;
+        int[] data = someCdiDao.getData();
+        OptionalInt result = Arrays.stream(data).max();
+
+        if (result.isPresent()) {
+            greatest = result.getAsInt();
+        }
+
+        return greatest;
+    }
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/cdi/SomeCdiDao.java
@@ -328,13 +319,14 @@ import javax.inject.Named;
 
 @Named
 public class SomeCdiDao {
-	
-	public int[] getData() {
-		return new int[] {5, 89,100};
-	}
+
+    public int[] getData() {
+        return new int[]{5, 89, 100};
+    }
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/properties/SomeExternalService.java
@@ -347,16 +339,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SomeExternalService {
-	
-	@Value("${external.service.url}")
-	private String url;
-	
-	public String returnServiceURL(){
-		return url;
-	}
+
+    @Value("${external.service.url}")
+    private String url;
+
+    public String returnServiceURL() {
+        return url;
+    }
 
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/scope/JdbcConnection.java
@@ -370,14 +363,15 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE, 
-		proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE,
+        proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class JdbcConnection {
-	public JdbcConnection() {
-		System.out.println("JDBC Connection");
-	}
+    public JdbcConnection() {
+        System.out.println("JDBC Connection");
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/scope/PersonDAO.java
@@ -391,18 +385,19 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class PersonDAO {
 
-	@Autowired
-	JdbcConnection jdbcConnection;
+    @Autowired
+    JdbcConnection jdbcConnection;
 
-	public JdbcConnection getJdbcConnection() {
-		return jdbcConnection;
-	}
+    public JdbcConnection getJdbcConnection() {
+        return jdbcConnection;
+    }
 
-	public void setJdbcConnection(JdbcConnection jdbcConnection) {
-		this.jdbcConnection = jdbcConnection;
-	}
+    public void setJdbcConnection(JdbcConnection jdbcConnection) {
+        this.jdbcConnection = jdbcConnection;
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/SpringIn5StepsBasicApplication.java
@@ -420,27 +415,28 @@ import com.in28minutes.spring.basics.springin5steps.basic.BinarySearchImpl;
 @ComponentScan
 public class SpringIn5StepsBasicApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try (AnnotationConfigApplicationContext applicationContext = 
-				new AnnotationConfigApplicationContext(
-				SpringIn5StepsBasicApplication.class)) {
+        try (AnnotationConfigApplicationContext applicationContext =
+                     new AnnotationConfigApplicationContext(
+                             SpringIn5StepsBasicApplication.class)) {
 
-			BinarySearchImpl binarySearch = 
-					applicationContext.getBean(BinarySearchImpl.class);
+            BinarySearchImpl binarySearch =
+                    applicationContext.getBean(BinarySearchImpl.class);
 
-			BinarySearchImpl binarySearch1 = 
-					applicationContext.getBean(BinarySearchImpl.class);
+            BinarySearchImpl binarySearch1 =
+                    applicationContext.getBean(BinarySearchImpl.class);
 
-			System.out.println(binarySearch);
-			System.out.println(binarySearch1);
+            System.out.println(binarySearch);
+            System.out.println(binarySearch1);
 
-			int result = binarySearch.binarySearch(new int[] { 12, 4, 6 }, 3);
-			System.out.println(result);
-		}
-	}
+            int result = binarySearch.binarySearch(new int[]{12, 4, 6}, 3);
+            System.out.println(result);
+        }
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/SpringIn5StepsCdiApplication.java
@@ -460,18 +456,19 @@ import com.in28minutes.spring.basics.springin5steps.cdi.SomeCdiBusiness;
 @ComponentScan
 public class SpringIn5StepsCdiApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsCdiApplication.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsCdiApplication.class);
 
-	public static void main(String[] args) {
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsCdiApplication.class)) {
-			SomeCdiBusiness business = applicationContext.getBean(SomeCdiBusiness.class);
+    public static void main(String[] args) {
+        try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+                SpringIn5StepsCdiApplication.class)) {
+            SomeCdiBusiness business = applicationContext.getBean(SomeCdiBusiness.class);
 
-			LOGGER.info("{} dao-{}", business, business.getSomeCDIDAO());
-		}
-	}
+            LOGGER.info("{} dao-{}", business, business.getSomeCDIDAO());
+        }
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/SpringIn5StepsComponentScanApplication.java
@@ -491,19 +488,20 @@ import com.in28minutes.spring.basics.componentscan.ComponentDAO;
 @ComponentScan("com.in28minutes.spring.basics.componentscan")
 public class SpringIn5StepsComponentScanApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsComponentScanApplication.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsComponentScanApplication.class);
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsComponentScanApplication.class)) {
-			ComponentDAO componentDAO = applicationContext.getBean(ComponentDAO.class);
+        try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+                SpringIn5StepsComponentScanApplication.class)) {
+            ComponentDAO componentDAO = applicationContext.getBean(ComponentDAO.class);
 
-			LOGGER.info("{}", componentDAO);
-		}
-	}
+            LOGGER.info("{}", componentDAO);
+        }
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/SpringIn5StepsPropertiesApplication.java
@@ -524,17 +522,18 @@ import com.in28minutes.spring.basics.springin5steps.properties.SomeExternalServi
 @PropertySource("classpath:app.properties")
 public class SpringIn5StepsPropertiesApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsPropertiesApplication.class)) {
+        try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+                SpringIn5StepsPropertiesApplication.class)) {
 
-			SomeExternalService service = applicationContext.getBean(SomeExternalService.class);
-			System.out.println(service.returnServiceURL());
-		}
-	}
+            SomeExternalService service = applicationContext.getBean(SomeExternalService.class);
+            System.out.println(service.returnServiceURL());
+        }
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/SpringIn5StepsScopeApplication.java
@@ -554,27 +553,28 @@ import com.in28minutes.spring.basics.springin5steps.scope.PersonDAO;
 @ComponentScan
 public class SpringIn5StepsScopeApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsScopeApplication.class)) {
+        try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+                SpringIn5StepsScopeApplication.class)) {
 
-			PersonDAO personDao = applicationContext.getBean(PersonDAO.class);
+            PersonDAO personDao = applicationContext.getBean(PersonDAO.class);
 
-			PersonDAO personDao2 = applicationContext.getBean(PersonDAO.class);
+            PersonDAO personDao2 = applicationContext.getBean(PersonDAO.class);
 
-			LOGGER.info("{}", personDao);
-			LOGGER.info("{}", personDao.getJdbcConnection());
-			LOGGER.info("{}", personDao.getJdbcConnection());
+            LOGGER.info("{}", personDao);
+            LOGGER.info("{}", personDao.getJdbcConnection());
+            LOGGER.info("{}", personDao.getJdbcConnection());
 
-			LOGGER.info("{}", personDao2);
-			LOGGER.info("{}", personDao.getJdbcConnection());
-		}
-	}
+            LOGGER.info("{}", personDao2);
+            LOGGER.info("{}", personDao.getJdbcConnection());
+        }
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/SpringIn5StepsXMLContextApplication.java
@@ -590,23 +590,24 @@ import com.in28minutes.spring.basics.springin5steps.xml.XmlPersonDAO;
 
 public class SpringIn5StepsXMLContextApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try (ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-				"applicationContext.xml")) {
+        try (ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+                "applicationContext.xml")) {
 
-			LOGGER.info("Beans Loaded -> {}", (Object) applicationContext.getBeanDefinitionNames());
-			// [xmlJdbcConnection, xmlPersonDAO]
+            LOGGER.info("Beans Loaded -> {}", (Object) applicationContext.getBeanDefinitionNames());
+            // [xmlJdbcConnection, xmlPersonDAO]
 
-			XmlPersonDAO personDao = applicationContext.getBean(XmlPersonDAO.class);
+            XmlPersonDAO personDao = applicationContext.getBean(XmlPersonDAO.class);
 
-			LOGGER.info("{} {}", personDao, personDao.getXmlJdbcConnection());
-		}
-	}
+            LOGGER.info("{} {}", personDao, personDao.getXmlJdbcConnection());
+        }
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/xml/XmlJdbcConnection.java
@@ -615,11 +616,12 @@ public class SpringIn5StepsXMLContextApplication {
 package com.in28minutes.spring.basics.springin5steps.xml;
 
 public class XmlJdbcConnection {
-	public XmlJdbcConnection() {
-		System.out.println("JDBC Connection");
-	}
+    public XmlJdbcConnection() {
+        System.out.println("JDBC Connection");
+    }
 }
 ```
+
 ---
 
 ### /src/main/java/com/in28minutes/spring/basics/springin5steps/xml/XmlPersonDAO.java
@@ -629,17 +631,18 @@ package com.in28minutes.spring.basics.springin5steps.xml;
 
 public class XmlPersonDAO {
 
-	XmlJdbcConnection xmlJdbcConnection;
+    XmlJdbcConnection xmlJdbcConnection;
 
-	public XmlJdbcConnection getXmlJdbcConnection() {
-		return xmlJdbcConnection;
-	}
+    public XmlJdbcConnection getXmlJdbcConnection() {
+        return xmlJdbcConnection;
+    }
 
-	public void setXmlJdbcConnection(XmlJdbcConnection jdbcConnection) {
-		this.xmlJdbcConnection = jdbcConnection;
-	}
+    public void setXmlJdbcConnection(XmlJdbcConnection jdbcConnection) {
+        this.xmlJdbcConnection = jdbcConnection;
+    }
 }
 ```
+
 ---
 
 ### /src/main/resources/app.properties
@@ -647,6 +650,7 @@ public class XmlPersonDAO {
 ```properties
 external.service.url=http://someserver.dev.com/service
 ```
+
 ---
 
 ### /src/main/resources/application.properties
@@ -654,6 +658,7 @@ external.service.url=http://someserver.dev.com/service
 ```properties
 #logging.level.org.springframework = debug
 ```
+
 ---
 
 ### /src/main/resources/applicationContext.xml
@@ -661,25 +666,24 @@ external.service.url=http://someserver.dev.com/service
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-	
-	<context:component-scan base-package="com.in28minutes.spring.basics"/>
 
-    <bean id="xmlJdbcConnection" 
-    	class="com.in28minutes.spring.basics.springin5steps.xml.XmlJdbcConnection">
-    </bean>
+    <context:component-scan base-package="com.in28minutes.spring.basics"/>
+
+    <bean id="xmlJdbcConnection" class="com.in28minutes.spring.basics.springin5steps.xml.XmlJdbcConnection"/>
 
     <bean id="xmlPersonDAO" class="com.in28minutes.spring.basics.springin5steps.xml.XmlPersonDAO">
-    		<property name="xmlJdbcConnection" ref="xmlJdbcConnection"/>
+        <property name="xmlJdbcConnection" ref="xmlJdbcConnection"/>
     </bean>
 
 </beans>
 ```
+
 ---
 
 ### /src/main/resources/log.txt
@@ -701,6 +705,7 @@ No Setter or Constructor - Autowiring by type from bean name 'binarySearchImpl' 
 
 Finished creating instance of bean 'binarySearchImpl'
 ```
+
 ---
 
 ### /src/test/java/com/in28minutes/spring/basics/springin5steps/basic/BinarySearchTest.java
@@ -708,38 +713,41 @@ Finished creating instance of bean 'binarySearchImpl'
 ```java
 package com.in28minutes.spring.basics.springin5steps.basic;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.in28minutes.spring.basics.springin5steps.SpringIn5StepsBasicApplication;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-//Load the context
-@RunWith(SpringRunner.class)
+// Load the context
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringIn5StepsBasicApplication.class)
 public class BinarySearchTest {
 
-	// Get this bean from the context
-	@Autowired
-	BinarySearchImpl binarySearch;
+    // Get this bean from the context
+    @Autowired
+    BinarySearchImpl binarySearch;
 
-	@Test
-	public void testBasicScenario() {
-		
-		// call method on binarySearch
-		int actualResult = binarySearch.binarySearch(new int[] {}, 5);
+    @Test
+    public void testBasicScenario() {
 
-		// check if the value is correct
-		assertEquals(3, actualResult);
+        // call method on binarySearch
+        int actualResult = binarySearch.binarySearch(new int[]{}, 5);
 
-	}
+        // check if the value is correct
+        assertEquals(3, actualResult);
+
+    }
 
 }
+
 ```
+
 ---
 
 ### /src/test/java/com/in28minutes/spring/basics/springin5steps/basic/BinarySearchXMLConfigurationTest.java
@@ -747,36 +755,39 @@ public class BinarySearchTest {
 ```java
 package com.in28minutes.spring.basics.springin5steps.basic;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-//Load the context
-@RunWith(SpringRunner.class)
-@ContextConfiguration(locations="/testContext.xml")
+// Load the context
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = "/testContext.xml")
 public class BinarySearchXMLConfigurationTest {
 
-	// Get this bean from the context
-	@Autowired
-	BinarySearchImpl binarySearch;
+    // Get this bean from the context
+    @Autowired
+    BinarySearchImpl binarySearch;
 
-	@Test
-	public void testBasicScenario() {
-		
-		// call method on binarySearch
-		int actualResult = binarySearch.binarySearch(new int[] {}, 5);
+    @Test
+    public void testBasicScenario() {
 
-		// check if the value is correct
-		assertEquals(3, actualResult);
+        // call method on binarySearch
+        int actualResult = binarySearch.binarySearch(new int[]{}, 5);
 
-	}
+        // check if the value is correct
+        assertEquals(3, actualResult);
+
+    }
 
 }
 ```
+
 ---
 
 ### /src/test/java/com/in28minutes/spring/basics/springin5steps/cdi/SomeCdiBusinessTest.java
@@ -784,46 +795,50 @@ public class BinarySearchXMLConfigurationTest {
 ```java
 package com.in28minutes.spring.basics.springin5steps.cdi;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced MockitoJUnitRunner.class with MockitoExtension.class
+@ExtendWith(MockitoExtension.class)
 public class SomeCdiBusinessTest {
 
-	// Inject Mock
-	@InjectMocks
-	SomeCdiBusiness business;
+    // Inject Mock
+    @InjectMocks
+    SomeCdiBusiness business;
 
-	// Create Mock
-	@Mock
-	SomeCdiDao daoMock;
+    // Create Mock
+    @Mock
+    SomeCdiDao daoMock;
 
-	@Test
-	public void testBasicScenario() {
-		Mockito.when(daoMock.getData()).thenReturn(new int[] { 2, 4 });
-		assertEquals(4, business.findGreatest());
-	}
+    @Test
+    public void testBasicScenario() {
+        Mockito.when(daoMock.getData()).thenReturn(new int[]{2, 4});
+        assertEquals(4, business.findGreatest());
+    }
 
-	@Test
-	public void testBasicScenario_NoElements() {
-		Mockito.when(daoMock.getData()).thenReturn(new int[] { });
-		assertEquals(Integer.MIN_VALUE, business.findGreatest());
-	}
+    @Test
+    public void testBasicScenario_NoElements() {
+        Mockito.when(daoMock.getData()).thenReturn(new int[]{});
+        assertEquals(Integer.MIN_VALUE, business.findGreatest());
+    }
 
-	@Test
-	public void testBasicScenario_EqualElements() {
-		Mockito.when(daoMock.getData()).thenReturn(new int[] { 2,2});
-		assertEquals(2, business.findGreatest());
-	}
+    @Test
+    public void testBasicScenario_EqualElements() {
+        Mockito.when(daoMock.getData()).thenReturn(new int[]{2, 2});
+        assertEquals(2, business.findGreatest());
+    }
 
 }
+
 ```
+
 ---
 
 ### /src/test/java/com/in28minutes/spring/basics/springin5steps/SpringIn5StepsBasicApplicationTests.java
@@ -831,20 +846,24 @@ public class SomeCdiBusinessTest {
 ```java
 package com.in28minutes.spring.basics.springin5steps;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@RunWith(SpringRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 //@SpringBootTest
 public class SpringIn5StepsBasicApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }
+
 ```
+
 ---
 
 ### /src/test/resources/testContext.xml
@@ -852,15 +871,13 @@ public class SpringIn5StepsBasicApplicationTests {
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
-	
-	<import resource="classpath:applicationContext.xml"/>
-	
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="classpath:applicationContext.xml"/>
+
 </beans>
 ```
+
 ---

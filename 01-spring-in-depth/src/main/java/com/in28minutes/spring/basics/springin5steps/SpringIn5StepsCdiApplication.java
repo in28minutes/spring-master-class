@@ -12,14 +12,13 @@ import com.in28minutes.spring.basics.springin5steps.cdi.SomeCdiBusiness;
 @ComponentScan
 public class SpringIn5StepsCdiApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsCdiApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsCdiApplication.class);
 
-	public static void main(String[] args) {
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsCdiApplication.class)) {
-			SomeCdiBusiness business = applicationContext.getBean(SomeCdiBusiness.class);
+    public static void main(String[] args) {
+        try (var applicationContext = new AnnotationConfigApplicationContext(SpringIn5StepsCdiApplication.class)) {
+            SomeCdiBusiness business = applicationContext.getBean(SomeCdiBusiness.class);
 
-			LOGGER.info("{} dao-{}", business, business.getSomeCDIDAO());
-		}
-	}
+            LOGGER.info("{} dao-{}", business, business.getSomeCDIDAO());
+        }
+    }
 }

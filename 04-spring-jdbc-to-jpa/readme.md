@@ -103,9 +103,9 @@ create table person
 Data
 
 ```sql
-INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(10001,  'Ranga', 'Hyderabad',sysdate());
-INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(10002,  'James', 'New York',sysdate());
-INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(10003,  'Pieter', 'Amsterdam',sysdate());
+INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(10001,  'Ranga', 'Hyderabad',CURRENT_DATE());
+INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(10002,  'James', 'New York',CURRENT_DATE());
+INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(10003,  'Pieter', 'Amsterdam',CURRENT_DATE());
 ```
 
 ## Complete Code Example
@@ -130,14 +130,14 @@ INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(10003,  'Pieter', 'A
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.RELEASE</version>
+		<version>3.0.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 	</properties>
 
 	<dependencies>
@@ -178,43 +178,26 @@ INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(10003,  'Pieter', 'A
 	</build>
 
 	<repositories>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+	<repository>
+		<id>spring-milestones</id>
+		<name>Spring Milestones</name>
+		<url>https://repo.spring.io/milestone</url>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+	</repository>
+</repositories>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
-
+<pluginRepositories>
+	<pluginRepository>
+		<id>spring-milestones</id>
+		<name>Spring Milestones</name>
+		<url>https://repo.spring.io/milestone</url>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+	</pluginRepository>
+</pluginRepositories>
 
 </project>
 ```
@@ -227,10 +210,10 @@ package com.in28minutes.database.databasedemo.entity;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 
 @Entity
 @NamedQuery(name="find_all_persons", query="select p from Person p")
@@ -328,7 +311,7 @@ public class PersonJbdcDao {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
-	class PersonRowMapper implements RowMapper<Person>{
+	static class PersonRowMapper implements RowMapper<Person>{
 		@Override
 		public Person mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Person person = new Person();
@@ -377,10 +360,10 @@ package com.in28minutes.database.databasedemo.jpa;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -439,7 +422,7 @@ import com.in28minutes.database.databasedemo.jpa.PersonJpaRepository;
 //@SpringBootApplication
 public class JpaDemoApplication implements CommandLineRunner {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	PersonJpaRepository repository;
@@ -504,7 +487,7 @@ import com.in28minutes.database.databasedemo.springdata.PersonSpringDataReposito
 @SpringBootApplication
 public class SpringDataDemoApplication implements CommandLineRunner {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	PersonSpringDataRepository repository;
@@ -552,7 +535,7 @@ import com.in28minutes.database.databasedemo.jdbc.PersonJbdcDao;
 //@SpringBootApplication
 public class SpringJdbcDemoApplication implements CommandLineRunner {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	PersonJbdcDao dao;
@@ -606,11 +589,11 @@ create table person
 */
 
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) 
-VALUES(10001,  'Ranga', 'Hyderabad',sysdate());
+VALUES(10001,  'Ranga', 'Hyderabad',CURRENT_DATE());
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) 
-VALUES(10002,  'James', 'New York',sysdate());
+VALUES(10002,  'James', 'New York',CURRENT_DATE());
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) 
-VALUES(10003,  'Pieter', 'Amsterdam',sysdate());
+VALUES(10003,  'Pieter', 'Amsterdam',CURRENT_DATE());
 
 ```
 ---
@@ -618,20 +601,20 @@ VALUES(10003,  'Pieter', 'Amsterdam',sysdate());
 ### /src/test/java/com/in28minutes/database/databasedemo/SpringJdbcDemoApplicationTests.java
 
 ```java
-package com.in28minutes.database.databasedemo;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@RunWith(SpringRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class SpringJdbcDemoApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+  @Test
+  public void contextLoads() {
+  }
 
 }
 ```
@@ -649,7 +632,7 @@ AUTO-CONFIGURATION REPORT
 =========================
 
 DataSourceAutoConfiguration matched:
-   - @ConditionalOnClass found required classes 'javax.sql.DataSource', 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
+   - @ConditionalOnClass found required classes 'jakarta.sql.DataSource', 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
 
 DataSourceTransactionManagerAutoConfiguration matched:
    - @ConditionalOnClass found required classes 'org.springframework.jdbc.core.JdbcTemplate', 'org.springframework.transaction.PlatformTransactionManager'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
@@ -660,8 +643,8 @@ H2ConsoleAutoConfiguration matched:
    - @ConditionalOnProperty (spring.h2.console.enabled=true) matched (OnPropertyCondition)
 
 JdbcTemplateAutoConfiguration matched:
-   - @ConditionalOnClass found required classes 'javax.sql.DataSource', 'org.springframework.jdbc.core.JdbcTemplate'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
-   - @ConditionalOnSingleCandidate (types: javax.sql.DataSource; SearchStrategy: all) found a primary bean from beans 'dataSource' (OnBeanCondition)
+   - @ConditionalOnClass found required classes 'jakarta.sql.DataSource', 'org.springframework.jdbc.core.JdbcTemplate'; @ConditionalOnMissingClass did not find unwanted class (OnClassCondition)
+   - @ConditionalOnSingleCandidate (types: jakarta.sql.DataSource; SearchStrategy: all) found a primary bean from beans 'dataSource' (OnBeanCondition)
 
 JdbcTemplateAutoConfiguration.JdbcTemplateConfiguration#jdbcTemplate matched:
    - @ConditionalOnMissingBean (types: org.springframework.jdbc.core.JdbcOperations; SearchStrategy: all) did not find any beans (OnBeanCondition)

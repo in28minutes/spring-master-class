@@ -21,14 +21,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.RELEASE</version>
+		<version>3.0.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 	</properties>
 
 	<dependencies>
@@ -69,43 +69,26 @@
 	</build>
 
 	<repositories>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+	<repository>
+		<id>spring-milestones</id>
+		<name>Spring Milestones</name>
+		<url>https://repo.spring.io/milestone</url>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+	</repository>
+</repositories>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
-
+<pluginRepositories>
+	<pluginRepository>
+		<id>spring-milestones</id>
+		<name>Spring Milestones</name>
+		<url>https://repo.spring.io/milestone</url>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+	</pluginRepository>
+</pluginRepositories>
 
 </project>
 ```
@@ -131,7 +114,7 @@ import com.in28minutes.database.databasedemo.jdbc.PersonJbdcDao;
 @SpringBootApplication
 public class DatabaseDemoApplication implements CommandLineRunner {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	PersonJbdcDao dao;
@@ -253,7 +236,7 @@ public class PersonJbdcDao {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
-	class PersonRowMapper implements RowMapper<Person>{
+	static class PersonRowMapper implements RowMapper<Person>{
 		@Override
 		public Person mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Person person = new Person();
@@ -316,11 +299,11 @@ create table person
 );
 
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) 
-VALUES(10001,  'Ranga', 'Hyderabad',sysdate());
+VALUES(10001,  'Ranga', 'Hyderabad',CURRENT_DATE());
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) 
-VALUES(10002,  'James', 'New York',sysdate());
+VALUES(10002,  'James', 'New York',CURRENT_DATE());
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) 
-VALUES(10003,  'Pieter', 'Amsterdam',sysdate());
+VALUES(10003,  'Pieter', 'Amsterdam',CURRENT_DATE());
 
 ```
 ---
@@ -328,20 +311,20 @@ VALUES(10003,  'Pieter', 'Amsterdam',sysdate());
 ### /src/test/java/com/in28minutes/database/databasedemo/DatabaseDemoApplicationTests.java
 
 ```java
-package com.in28minutes.database.databasedemo;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@RunWith(SpringRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class DatabaseDemoApplicationTests {
+public class SpringJdbcDemoApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }
 ```

@@ -15,7 +15,7 @@ import com.in28minutes.database.databasedemo.jdbc.PersonJbdcDao;
 //@SpringBootApplication
 public class SpringJdbcDemoApplication implements CommandLineRunner {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	PersonJbdcDao dao;

@@ -14,30 +14,30 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 public class SomeCdiBusinessTest {
 
-	// Inject Mock
-	@InjectMocks
-	SomeCdiBusiness business;
+    // Inject Mock
+    @InjectMocks
+    SomeCdiBusiness business;
 
-	// Create Mock
-	@Mock
-	SomeCdiDao daoMock;
+    // Create Mock
+    @Mock
+    SomeCdiDao daoMock;
 
-	@Test
-	public void testBasicScenario() {
-		Mockito.when(daoMock.getData()).thenReturn(new int[] { 2, 4 });
-		assertEquals(4, business.findGreatest());
-	}
+    @Test
+    public void testBasicScenario() {
+        Mockito.when(daoMock.getData()).thenReturn(new int[]{2, 4});
+        assertEquals(4, business.findGreatest());
+    }
 
-	@Test
-	public void testBasicScenario_NoElements() {
-		Mockito.when(daoMock.getData()).thenReturn(new int[] { });
-		assertEquals(Integer.MIN_VALUE, business.findGreatest());
-	}
+    @Test
+    public void testBasicScenario_NoElements() {
+        Mockito.when(daoMock.getData()).thenReturn(new int[]{});
+        assertEquals(Integer.MIN_VALUE, business.findGreatest());
+    }
 
-	@Test
-	public void testBasicScenario_EqualElements() {
-		Mockito.when(daoMock.getData()).thenReturn(new int[] { 2,2});
-		assertEquals(2, business.findGreatest());
-	}
+    @Test
+    public void testBasicScenario_EqualElements() {
+        Mockito.when(daoMock.getData()).thenReturn(new int[]{2, 2});
+        assertEquals(2, business.findGreatest());
+    }
 
 }

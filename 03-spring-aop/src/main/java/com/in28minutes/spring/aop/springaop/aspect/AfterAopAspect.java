@@ -14,16 +14,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AfterAopAspect {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@AfterReturning(value = "com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()", 
-			returning = "result")
-	public void afterReturning(JoinPoint joinPoint, Object result) {
-		logger.info("{} returned with value {}", joinPoint, result);
-	}
-	
-	@After(value = "com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()")
-	public void after(JoinPoint joinPoint) {
-		logger.info("after execution of {}", joinPoint);
-	}
+    @AfterReturning(value = "com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()",
+            returning = "result")
+    public void afterReturning(JoinPoint joinPoint, Object result) {
+        logger.info("{} returned with value {}", joinPoint, result);
+    }
+
+    @After(value = "com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.businessLayerExecution()")
+    public void after(JoinPoint joinPoint) {
+        logger.info("after execution of {}", joinPoint);
+    }
 }

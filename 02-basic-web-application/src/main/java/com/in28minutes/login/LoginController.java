@@ -10,24 +10,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
-	@Autowired
-	private LoginService loginService;
+    @Autowired
+    private LoginService loginService;
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String showLoginPage() {
-		return "login";
-	}
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String showLoginPage() {
+        return "login";
+    }
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String handleUserLogin(ModelMap model, @RequestParam String name,
-			@RequestParam String password) {
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String handleUserLogin(ModelMap model, @RequestParam String name,
+                                  @RequestParam String password) {
 
-		if (!loginService.validateUser(name, password)) {
-			model.put("errorMessage", "Invalid Credentials");
-			return "login";
-		}
+        if (!loginService.validateUser(name, password)) {
+            model.put("errorMessage", "Invalid Credentials");
+            return "login";
+        }
 
-		model.put("name", name);
-		return "welcome";
-	}
+        model.put("name", name);
+        return "welcome";
+    }
 }

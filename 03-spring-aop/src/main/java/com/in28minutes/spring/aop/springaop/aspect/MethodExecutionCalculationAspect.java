@@ -11,17 +11,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MethodExecutionCalculationAspect {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Around("com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.trackTimeAnnotation()")
-	public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
-		long startTime = System.currentTimeMillis();
+    @Around("com.in28minutes.spring.aop.springaop.aspect.CommonJoinPointConfig.trackTimeAnnotation()")
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+        long startTime = System.currentTimeMillis();
 
-		Object returnProceed = joinPoint.proceed();
+        Object returnProceed = joinPoint.proceed();
 
-		long timeTaken = System.currentTimeMillis() - startTime;
-		logger.info("Time Taken by {} is {}", joinPoint, timeTaken);
+        long timeTaken = System.currentTimeMillis() - startTime;
+        logger.info("Time Taken by {} is {}", joinPoint, timeTaken);
 
-		return returnProceed;
-	}
+        return returnProceed;
+    }
 }

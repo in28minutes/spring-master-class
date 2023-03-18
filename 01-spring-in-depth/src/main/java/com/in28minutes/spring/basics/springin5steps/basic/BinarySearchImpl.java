@@ -13,29 +13,29 @@ import org.springframework.stereotype.Service;
 @Service
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class BinarySearchImpl {
-	
-	private Logger logger = LoggerFactory.getLogger(this.getClass()); 
 
-	@Autowired
-	@Qualifier("bubble")
-	private SortAlgorithm sortAlgorithm;
-	
-	public int binarySearch(int[] numbers, int numberToSearchFor) {
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-		int[] sortedNumbers = sortAlgorithm.sort(numbers);
-		System.out.println(sortAlgorithm);
-		// Search the array
-		return 3;
-	}
-	
-	@PostConstruct
-	public void postConstruct() {
-		logger.info("postConstruct");
-	}
+    @Autowired
+    @Qualifier("bubble")
+    private SortAlgorithm sortAlgorithm;
 
-	@PreDestroy
-	public void preDestroy() {
-		logger.info("preDestroy");
-	}
+    public int binarySearch(int[] numbers, int numberToSearchFor) {
+
+        int[] sortedNumbers = sortAlgorithm.sort(numbers);
+        System.out.println(sortAlgorithm);
+        // Search the array
+        return 3;
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        logger.info("postConstruct");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        logger.info("preDestroy");
+    }
 
 }

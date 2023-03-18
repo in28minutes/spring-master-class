@@ -36,14 +36,14 @@ Let's play and learn more about Spring MVC
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
-			<version>6.0</version>
+			<version>8.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.2.2.RELEASE</version>
+			<version>6.0.6</version>
 		</dependency>
 
 		<dependency>

@@ -8,19 +8,18 @@ import com.in28minutes.spring.basics.springin5steps.xml.XmlPersonDAO;
 
 public class SpringIn5StepsXMLContextApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try (ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-				"applicationContext.xml")) {
+        try (var applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml")) {
 
-			LOGGER.info("Beans Loaded -> {}", (Object) applicationContext.getBeanDefinitionNames());
-			// [xmlJdbcConnection, xmlPersonDAO]
+            LOGGER.info("Beans Loaded -> {}", (Object) applicationContext.getBeanDefinitionNames());
+            // [xmlJdbcConnection, xmlPersonDAO]
 
-			XmlPersonDAO personDao = applicationContext.getBean(XmlPersonDAO.class);
+            var personDao = applicationContext.getBean(XmlPersonDAO.class);
 
-			LOGGER.info("{} {}", personDao, personDao.getXmlJdbcConnection());
-		}
-	}
+            LOGGER.info("{} {}", personDao, personDao.getXmlJdbcConnection());
+        }
+    }
 }

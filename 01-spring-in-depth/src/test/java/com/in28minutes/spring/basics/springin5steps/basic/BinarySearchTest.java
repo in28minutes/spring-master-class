@@ -16,19 +16,19 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration(classes = SpringIn5StepsBasicApplication.class)
 public class BinarySearchTest {
 
-	// Get this bean from the context
-	@Autowired
-	BinarySearchImpl binarySearch;
+    // Get this bean from the context
+    @Autowired
+    BinarySearchImpl binarySearch;
 
-	@Test
-	public void testBasicScenario() {
-		
-		// call method on binarySearch
-		int actualResult = binarySearch.binarySearch(new int[] {}, 5);
+    @Test
+    public void testBasicScenario() {
 
-		// check if the value is correct
-		assertEquals(3, actualResult);
+        // call method on binarySearch
+        int actualResult = binarySearch.binarySearch(new int[]{}, 5);
 
-	}
+        // check if the value is correct
+        assertEquals(3, actualResult);
+
+    }
 
 }

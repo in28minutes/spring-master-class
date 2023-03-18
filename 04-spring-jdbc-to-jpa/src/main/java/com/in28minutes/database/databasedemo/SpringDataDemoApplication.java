@@ -15,7 +15,7 @@ import com.in28minutes.database.databasedemo.springdata.PersonSpringDataReposito
 @SpringBootApplication
 public class SpringDataDemoApplication implements CommandLineRunner {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	PersonSpringDataRepository repository;
