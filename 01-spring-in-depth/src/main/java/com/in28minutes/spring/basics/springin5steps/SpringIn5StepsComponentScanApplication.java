@@ -12,13 +12,12 @@ import com.in28minutes.spring.basics.componentscan.ComponentDAO;
 @ComponentScan("com.in28minutes.spring.basics.componentscan")
 public class SpringIn5StepsComponentScanApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsComponentScanApplication.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsComponentScanApplication.class);
 
 	public static void main(String[] args) {
 
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsComponentScanApplication.class)) {
-			ComponentDAO componentDAO = applicationContext.getBean(ComponentDAO.class);
+		try (var applicationContext = new AnnotationConfigApplicationContext(SpringIn5StepsComponentScanApplication.class)) {
+			var componentDAO = applicationContext.getBean(ComponentDAO.class);
 
 			LOGGER.info("{}", componentDAO);
 		}

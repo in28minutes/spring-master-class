@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class BinarySearchImpl {
 	
-	private Logger logger = LoggerFactory.getLogger(this.getClass()); 
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	@Qualifier("bubble")

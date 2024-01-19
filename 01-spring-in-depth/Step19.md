@@ -21,16 +21,16 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.1</version>
+		<version>3.2.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>17</java.version>
-        <jakarta.annotation.api.version>2.1.0</jakarta.annotation.api.version>
-        <junit-jupiter.version>5.8.2</junit-jupiter.version>
+		<java.version>21</java.version>
+        <jakarta.annotation.api.version>2.1.1</jakarta.annotation.api.version>
+        <junit-jupiter.version>5.9.2</junit-jupiter.version>
 	</properties>
 
 	<dependencies>
@@ -187,7 +187,7 @@ import org.springframework.stereotype.Component;
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class BinarySearchImpl {
 	
-	private Logger logger = LoggerFactory.getLogger(this.getClass()); 
+	private final Logger logger = LoggerFactory.getLogger(this.getClass()); 
 
 	@Autowired
 	@Qualifier("bubble")
@@ -259,7 +259,7 @@ public class QuickSortAlgorithm implements SortAlgorithm {
 package com.in28minutes.spring.basics.springin5steps.basic;
 
 public interface SortAlgorithm {
-	public int[] sort(int[] numbers);
+	int[] sort(int[] numbers);
 }
 ```
 ---
@@ -367,20 +367,16 @@ public class SpringIn5StepsBasicApplication {
 
 	public static void main(String[] args) {
 
-		ApplicationContext applicationContext =
-				new AnnotationConfigApplicationContext(SpringIn5StepsBasicApplication.class);
+		var applicationContext = new AnnotationConfigApplicationContext(SpringIn5StepsBasicApplication.class);
 		
-		BinarySearchImpl binarySearch = 
-				applicationContext.getBean(BinarySearchImpl.class);
+		var binarySearch = applicationContext.getBean(BinarySearchImpl.class);
 
-		BinarySearchImpl binarySearch1 = 
-				applicationContext.getBean(BinarySearchImpl.class);
+		var binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
 
 		System.out.println(binarySearch);
 		System.out.println(binarySearch1);
 		
-		int result = 
-				binarySearch.binarySearch(new int[] { 12, 4, 6 }, 3);
+		int result = binarySearch.binarySearch(new int[] { 12, 4, 6 }, 3);
 		System.out.println(result);
 	}
 }
@@ -403,16 +399,13 @@ import com.in28minutes.spring.basics.springin5steps.cdi.SomeCdiBusiness;
 @SpringBootApplication
 public class SpringIn5StepsCdiApplication {
 	
-	private static Logger LOGGER = 
-			LoggerFactory.getLogger(SpringIn5StepsCdiApplication.class); 
+	private static final Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsCdiApplication.class); 
 	
 	public static void main(String[] args) {
 
-		ApplicationContext applicationContext = 
-				SpringApplication.run(SpringIn5StepsCdiApplication.class, args);
+		var applicationContext = SpringApplication.run(SpringIn5StepsCdiApplication.class, args);
 		
-		SomeCdiBusiness business = 
-				applicationContext.getBean(SomeCdiBusiness.class);
+		var business = applicationContext.getBean(SomeCdiBusiness.class);
 		
 		LOGGER.info("{} dao-{}", business, business.getSomeCDIDAO());
 	}
@@ -438,16 +431,13 @@ import com.in28minutes.spring.basics.componentscan.ComponentDAO;
 @ComponentScan("com.in28minutes.spring.basics.componentscan")
 public class SpringIn5StepsComponentScanApplication {
 	
-	private static Logger LOGGER = 
-			LoggerFactory.getLogger(SpringIn5StepsComponentScanApplication.class); 
+	private static final Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsComponentScanApplication.class); 
 	
 	public static void main(String[] args) {
 
-		ApplicationContext applicationContext = 
-				SpringApplication.run(SpringIn5StepsComponentScanApplication.class, args);
+		var applicationContext = SpringApplication.run(SpringIn5StepsComponentScanApplication.class, args);
 		
-		ComponentDAO componentDAO = 
-				applicationContext.getBean(ComponentDAO.class);
+		var componentDAO = applicationContext.getBean(ComponentDAO.class);
 		
 		LOGGER.info("{}", componentDAO);
 		
@@ -472,19 +462,15 @@ import com.in28minutes.spring.basics.springin5steps.scope.PersonDAO;
 @SpringBootApplication
 public class SpringIn5StepsScopeApplication {
 	
-	private static Logger LOGGER = 
-			LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class); 
+	private static final Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class); 
 	
 	public static void main(String[] args) {
 
-		ApplicationContext applicationContext = 
-				SpringApplication.run(SpringIn5StepsScopeApplication.class, args);
+		var applicationContext = SpringApplication.run(SpringIn5StepsScopeApplication.class, args);
 		
-		PersonDAO personDao = 
-				applicationContext.getBean(PersonDAO.class);
+		var personDao = applicationContext.getBean(PersonDAO.class);
 		
-		PersonDAO personDao2 = 
-				applicationContext.getBean(PersonDAO.class);
+		var personDao2 = applicationContext.getBean(PersonDAO.class);
 		
 		LOGGER.info("{}", personDao);
 		LOGGER.info("{}", personDao.getJdbcConnection());

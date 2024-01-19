@@ -21,14 +21,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.1</version>
+		<version>3.2.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 	</properties>
 
 	<dependencies>
@@ -171,7 +171,7 @@ public class QuickSortAlgorithm implements SortAlgorithm {
 package com.in28minutes.spring.basics.springin5steps;
 
 public interface SortAlgorithm {
-	public int[] sort(int[] numbers);
+	int[] sort(int[] numbers);
 }
 ```
 ---
@@ -197,14 +197,11 @@ public class SpringIn5StepsApplication {
 		// BinarySearchImpl binarySearch =
 		// new BinarySearchImpl(new QuickSortAlgorithm());
 		// Application Context
-		ApplicationContext applicationContext = 
-				SpringApplication.run(SpringIn5StepsApplication.class, args);
+		var applicationContext = SpringApplication.run(SpringIn5StepsApplication.class, args);
 		
-		BinarySearchImpl binarySearch = 
-				applicationContext.getBean(BinarySearchImpl.class);
+		var binarySearch = applicationContext.getBean(BinarySearchImpl.class);
 
-		BinarySearchImpl binarySearch1 = 
-				applicationContext.getBean(BinarySearchImpl.class);
+		var binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
 
 		System.out.println(binarySearch);
 		System.out.println(binarySearch1);

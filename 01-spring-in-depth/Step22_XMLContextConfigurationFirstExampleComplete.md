@@ -21,16 +21,16 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.1</version>
+		<version>3.2.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>17</java.version>
-        <jakarta.annotation.api.version>2.1.0</jakarta.annotation.api.version>
-        <junit-jupiter.version>5.8.2</junit-jupiter.version>
+		<java.version>21</java.version>
+        <jakarta.annotation.api.version>2.1.1</jakarta.annotation.api.version>
+        <junit-jupiter.version>5.9.2</junit-jupiter.version>
 	</properties>
 
 	<dependencies>
@@ -365,15 +365,11 @@ public class SpringIn5StepsBasicApplication {
 
 	public static void main(String[] args) {
 
-		try (AnnotationConfigApplicationContext applicationContext = 
-				new AnnotationConfigApplicationContext(
-				SpringIn5StepsBasicApplication.class)) {
+		try (var applicationContext = new AnnotationConfigApplicationContext(SpringIn5StepsBasicApplication.class)) {
 
-			BinarySearchImpl binarySearch = 
-					applicationContext.getBean(BinarySearchImpl.class);
+			var binarySearch = applicationContext.getBean(BinarySearchImpl.class);
 
-			BinarySearchImpl binarySearch1 = 
-					applicationContext.getBean(BinarySearchImpl.class);
+			var binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
 
 			System.out.println(binarySearch);
 			System.out.println(binarySearch1);
@@ -403,12 +399,11 @@ import com.in28minutes.spring.basics.springin5steps.cdi.SomeCdiBusiness;
 @ComponentScan
 public class SpringIn5StepsCdiApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsCdiApplication.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsCdiApplication.class);
 
 	public static void main(String[] args) {
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsCdiApplication.class)) {
-			SomeCdiBusiness business = applicationContext.getBean(SomeCdiBusiness.class);
+		try (var applicationContext = new AnnotationConfigApplicationContext(SpringIn5StepsCdiApplication.class)) {
+			var business = applicationContext.getBean(SomeCdiBusiness.class);
 
 			LOGGER.info("{} dao-{}", business, business.getSomeCDIDAO());
 		}
@@ -434,13 +429,12 @@ import com.in28minutes.spring.basics.componentscan.ComponentDAO;
 @ComponentScan("com.in28minutes.spring.basics.componentscan")
 public class SpringIn5StepsComponentScanApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsComponentScanApplication.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsComponentScanApplication.class);
 
 	public static void main(String[] args) {
 
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsComponentScanApplication.class)) {
-			ComponentDAO componentDAO = applicationContext.getBean(ComponentDAO.class);
+		try (var applicationContext = new AnnotationConfigApplicationContext(SpringIn5StepsComponentScanApplication.class)) {
+			var componentDAO = applicationContext.getBean(ComponentDAO.class);
 
 			LOGGER.info("{}", componentDAO);
 		}
@@ -456,7 +450,6 @@ package com.in28minutes.spring.basics.springin5steps;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -466,16 +459,15 @@ import com.in28minutes.spring.basics.springin5steps.scope.PersonDAO;
 @ComponentScan
 public class SpringIn5StepsScopeApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
 
 	public static void main(String[] args) {
 
-		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				SpringIn5StepsComponentScanApplication.class)) {
+		try (var applicationContext = new AnnotationConfigApplicationContext(SpringIn5StepsComponentScanApplication.class)) {
 
-			PersonDAO personDao = applicationContext.getBean(PersonDAO.class);
+			var personDao = applicationContext.getBean(PersonDAO.class);
 
-			PersonDAO personDao2 = applicationContext.getBean(PersonDAO.class);
+			var personDao2 = applicationContext.getBean(PersonDAO.class);
 
 			LOGGER.info("{}", personDao);
 			LOGGER.info("{}", personDao.getJdbcConnection());
@@ -506,10 +498,9 @@ public class SpringIn5StepsXMLContextApplication {
 
 	public static void main(String[] args) {
 
-		try (ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-				"applicationContext.xml")) {
+		try (var applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml")) {
 
-			XmlPersonDAO personDao = applicationContext.getBean(XmlPersonDAO.class);
+			var personDao = applicationContext.getBean(XmlPersonDAO.class);
 			System.out.println(personDao);
 			System.out.println(personDao.getXmlJdbcConnection());
 		}
