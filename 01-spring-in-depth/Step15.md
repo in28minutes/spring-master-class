@@ -278,7 +278,7 @@ import com.in28minutes.spring.basics.springin5steps.scope.PersonDAO;
 @SpringBootApplication
 public class SpringIn5StepsScopeApplication {
 	
-	private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class); 
+	private static final Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class); 
 	
 	public static void main(String[] args) {
 
