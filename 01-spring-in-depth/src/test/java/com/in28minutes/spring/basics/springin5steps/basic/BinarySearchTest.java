@@ -10,18 +10,16 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 // Load the context
-// replaced @RunWith with @ExtendWith
-// replaced SpringRunner.class with SpringExtension.class
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = SpringIn5StepsBasicApplication.class)
-public class BinarySearchTest {
+class BinarySearchTest {
 
 	// Get this bean from the context
 	@Autowired
 	BinarySearchImpl binarySearch;
 
 	@Test
-	public void testBasicScenario() {
+	void testBasicScenario() {
 		
 		// call method on binarySearch
 		int actualResult = binarySearch.binarySearch(new int[] {}, 5);
